@@ -1,0 +1,93 @@
+openapi: 3.0.0
+info:
+  title: QuotaPath data team API
+  description: Documentation for the QuotaPath API
+  x-logo:
+    url: https://storage.googleapis.com/quotapath-prod-app/qp_logos/logo_primary.png
+    href: https://quotapath.com
+  version: v1
+servers:
+- url: https://api.quotapath.com/v1
+security:
+- token_auth: []
+tags:
+- name: team
+paths:
+  /team/:
+    parameters: []
+    get:
+      operationId: team_list
+      description: 'This view gets the workspace''s team IDs + names
+
+        along with lists of the current member & manager emails'
+      parameters:
+      - name: limit
+        in: query
+        description: Number of results to return per page.
+        required: false
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        description: The initial index from which to return the results.
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ExternalTeam'
+      tags:
+      - team
+components:
+  schemas:
+    ExternalTeam:
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          description: The team name.
+          type: string
+          readOnly: true
+          minLength: 1
+        current_members:
+          title: Current members
+          description: list of emails for current members of team
+          type: string
+          readOnly: true
+        current_managers:
+          title: Current managers
+          description: list of emails for current managers of team
+          type: string
+          readOnly: true
+  securitySchemes:
+    token_auth:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: 'API Key authentication header. Prefix QuotaPath-generated api key with ''Token '' in Authorization header value. Example: ''Token abcdef12345'''

@@ -1,0 +1,122 @@
+openapi: 3.0.0
+info:
+  title: QuotaPath data plan API
+  description: Documentation for the QuotaPath API
+  x-logo:
+    url: https://storage.googleapis.com/quotapath-prod-app/qp_logos/logo_primary.png
+    href: https://quotapath.com
+  version: v1
+servers:
+- url: https://api.quotapath.com/v1
+security:
+- token_auth: []
+tags:
+- name: plan
+paths:
+  /plan/:
+    parameters: []
+    get:
+      operationId: plan_list
+      description: ''
+      parameters:
+      - name: limit
+        in: query
+        description: Number of results to return per page.
+        required: false
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        description: The initial index from which to return the results.
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ExternalPlan'
+      tags:
+      - plan
+components:
+  schemas:
+    ExternalAssignment:
+      required:
+      - email
+      type: object
+      properties:
+        email:
+          title: Email
+          type: string
+          format: email
+          minLength: 1
+        start_date:
+          title: Start date
+          type: string
+          format: date
+          readOnly: true
+          nullable: true
+        end_date:
+          title: End date
+          type: string
+          format: date
+          readOnly: true
+          nullable: true
+    ExternalPlan:
+      required:
+      - assignments
+      - paths
+      type: object
+      properties:
+        assignments:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalAssignment'
+        name:
+          title: Name
+          type: string
+          readOnly: true
+          minLength: 1
+        paths:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalPath'
+    ExternalPath:
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          readOnly: true
+          minLength: 1
+  securitySchemes:
+    token_auth:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: 'API Key authentication header. Prefix QuotaPath-generated api key with ''Token '' in Authorization header value. Example: ''Token abcdef12345'''

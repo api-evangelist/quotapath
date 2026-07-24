@@ -1,0 +1,361 @@
+openapi: 3.0.0
+info:
+  title: QuotaPath data deal API
+  description: Documentation for the QuotaPath API
+  x-logo:
+    url: https://storage.googleapis.com/quotapath-prod-app/qp_logos/logo_primary.png
+    href: https://quotapath.com
+  version: v1
+servers:
+- url: https://api.quotapath.com/v1
+security:
+- token_auth: []
+tags:
+- name: deal
+paths:
+  /deal/:
+    parameters: []
+    get:
+      operationId: deal_list
+      description: 'List filtered deals or create deal with payload. No query params will list all
+
+        deals. Supported query params are ''id'', ''integration_id'', ''path_id'', and ''user_email''.'
+      parameters:
+      - name: limit
+        in: query
+        description: Number of results to return per page.
+        required: false
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        description: The initial index from which to return the results.
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ExternalDeal'
+      tags:
+      - deal
+    post:
+      operationId: deal_create
+      description: 'List filtered deals or create deal with payload. No query params will list all
+
+        deals. Supported query params are ''id'', ''integration_id'', ''path_id'', and ''user_email''.'
+      requestBody:
+        $ref: '#/components/requestBodies/ExternalDeal'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExternalDeal'
+      tags:
+      - deal
+  /deal/bulk/:
+    parameters: []
+    post:
+      operationId: deal_bulk_create
+      description: Bulk update or create deals.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExternalBulkDealInput'
+        required: true
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties: {}
+      tags:
+      - deal
+  /deal/{uuid}/:
+    parameters:
+    - name: uuid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: deal
+      description: View for retrieve, update, delete based on deal uuid
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExternalDeal'
+      tags:
+      - deal
+    put:
+      operationId: deal_update
+      description: View for retrieve, update, delete based on deal uuid
+      requestBody:
+        $ref: '#/components/requestBodies/ExternalDeal'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExternalDeal'
+      tags:
+      - deal
+    patch:
+      operationId: deal_partial_update
+      description: View for retrieve, update, delete based on deal uuid
+      requestBody:
+        $ref: '#/components/requestBodies/ExternalDeal'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExternalDeal'
+      tags:
+      - deal
+    delete:
+      operationId: deal_delete
+      description: View for retrieve, update, delete based on deal uuid
+      responses:
+        '204':
+          description: ''
+      tags:
+      - deal
+components:
+  schemas:
+    ExternalBulkDealInput:
+      required:
+      - deals
+      type: object
+      properties:
+        deals:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalBulkDeal'
+    ExternalDealMetadata:
+      required:
+      - date_field_1
+      - date_field_2
+      - number_field_1
+      type: object
+      properties:
+        date_field_1:
+          title: Date field 1
+          type: string
+          format: date
+        date_field_2:
+          title: Date field 2
+          type: string
+          format: date
+        number_field_1:
+          title: Number field 1
+          type: string
+          format: decimal
+      nullable: true
+    ExternalDealValue:
+      required:
+      - value
+      - path_id
+      type: object
+      properties:
+        value:
+          title: Value
+          description: deal amount as number
+          type: number
+        path_id:
+          title: Path id
+          description: path this dealvalue applies to
+          type: string
+          format: uuid
+    ExternalDeal:
+      required:
+      - deal_values
+      - name
+      - user_email
+      type: object
+      properties:
+        admin_locked:
+          title: Admin locked
+          type: boolean
+        created_date:
+          title: Created date
+          type: string
+          format: date-time
+          readOnly: true
+        date:
+          title: Date
+          type: string
+          format: date
+        deal_values:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalDealValue'
+          minItems: 1
+        id:
+          title: Id
+          type: string
+          format: uuid
+          readOnly: true
+        integration_id:
+          title: Integration id
+          description: Unique foreign key from data-integration, paired with source
+          type: string
+          minLength: 1
+          nullable: true
+        integration_source:
+          title: Integration source
+          description: Source metadata for data-integration, here to keep relevant source info close at hand to the quotapath API/UI, and allow for upsert logic
+          type: string
+          enum:
+          - api
+          - close
+          - hubspot
+          - salesforce
+          - bulk
+          - universal
+          readOnly: true
+          nullable: true
+        name:
+          title: Name
+          type: string
+          maxLength: 255
+          minLength: 1
+        state:
+          title: State
+          type: string
+          enum:
+          - closed
+          - open
+          - lost
+        updated_date:
+          title: Updated date
+          type: string
+          format: date-time
+          readOnly: true
+        user_email:
+          title: User email
+          description: deal owner email
+          type: string
+          format: email
+          minLength: 1
+        metadata:
+          $ref: '#/components/schemas/ExternalDealMetadata'
+    ExternalBulkDeal:
+      required:
+      - deal_values
+      - name
+      - user_email
+      type: object
+      properties:
+        admin_locked:
+          title: Admin locked
+          type: boolean
+        created_date:
+          title: Created date
+          type: string
+          format: date-time
+          readOnly: true
+        date:
+          title: Date
+          type: string
+          format: date
+        deal_values:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalDealValue'
+          minItems: 1
+        id:
+          title: Id
+          type: string
+          format: uuid
+          readOnly: true
+        integration_id:
+          title: Integration id
+          description: Unique foreign key from data-integration, paired with source
+          type: string
+          minLength: 1
+          nullable: true
+        integration_source:
+          title: Integration source
+          description: Source metadata for data-integration, here to keep relevant source info close at hand to the quotapath API/UI, and allow for upsert logic
+          type: string
+          enum:
+          - api
+          - close
+          - hubspot
+          - salesforce
+          - bulk
+          - universal
+          readOnly: true
+          nullable: true
+        name:
+          title: Name
+          type: string
+          maxLength: 255
+          minLength: 1
+        state:
+          title: State
+          type: string
+          enum:
+          - closed
+          - open
+          - lost
+        updated_date:
+          title: Updated date
+          type: string
+          format: date-time
+          readOnly: true
+        user_email:
+          title: User email
+          description: deal owner email
+          type: string
+          format: email
+          minLength: 1
+        metadata:
+          $ref: '#/components/schemas/ExternalDealMetadata'
+  requestBodies:
+    ExternalDeal:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ExternalDeal'
+      required: true
+  securitySchemes:
+    token_auth:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: 'API Key authentication header. Prefix QuotaPath-generated api key with ''Token '' in Authorization header value. Example: ''Token abcdef12345'''

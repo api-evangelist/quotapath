@@ -1,0 +1,87 @@
+openapi: 3.0.0
+info:
+  title: QuotaPath data user API
+  description: Documentation for the QuotaPath API
+  x-logo:
+    url: https://storage.googleapis.com/quotapath-prod-app/qp_logos/logo_primary.png
+    href: https://quotapath.com
+  version: v1
+servers:
+- url: https://api.quotapath.com/v1
+security:
+- token_auth: []
+tags:
+- name: user
+paths:
+  /user/:
+    parameters: []
+    get:
+      operationId: user_list
+      description: ''
+      parameters:
+      - name: limit
+        in: query
+        description: Number of results to return per page.
+        required: false
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        description: The initial index from which to return the results.
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ExternalUser'
+      tags:
+      - user
+components:
+  schemas:
+    ExternalUser:
+      type: object
+      properties:
+        email:
+          title: Email
+          type: string
+          format: email
+          readOnly: true
+          minLength: 1
+        id:
+          title: Id
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          readOnly: true
+          minLength: 1
+  securitySchemes:
+    token_auth:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: 'API Key authentication header. Prefix QuotaPath-generated api key with ''Token '' in Authorization header value. Example: ''Token abcdef12345'''

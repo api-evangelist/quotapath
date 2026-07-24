@@ -1,0 +1,366 @@
+openapi: 3.0.0
+info:
+  title: QuotaPath data payout API
+  description: Documentation for the QuotaPath API
+  x-logo:
+    url: https://storage.googleapis.com/quotapath-prod-app/qp_logos/logo_primary.png
+    href: https://quotapath.com
+  version: v1
+servers:
+- url: https://api.quotapath.com/v1
+security:
+- token_auth: []
+tags:
+- name: payout
+paths:
+  /payout/:
+    parameters: []
+    get:
+      operationId: payout_list
+      description: ''
+      parameters:
+      - name: limit
+        in: query
+        description: Number of results to return per page.
+        required: false
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        description: The initial index from which to return the results.
+        required: false
+        schema:
+          type: integer
+      - name: updated_since
+        in: query
+        description: Unix timestamp in seconds. Specify to only return records updated after this timestamp.
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ExternalPayout'
+      tags:
+      - payout
+  /payout/resolved/:
+    parameters: []
+    get:
+      operationId: payout_resolved_list
+      description: ''
+      parameters:
+      - name: limit
+        in: query
+        description: Number of results to return per page.
+        required: false
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        description: The initial index from which to return the results.
+        required: false
+        schema:
+          type: integer
+      - name: updated_since
+        in: query
+        description: Unix timestamp in seconds. Specify to only return records updated after this timestamp.
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ExternalPayout'
+      tags:
+      - payout
+  /payout/unresolved/:
+    parameters: []
+    get:
+      operationId: payout_unresolved_list
+      description: ''
+      parameters:
+      - name: limit
+        in: query
+        description: Number of results to return per page.
+        required: false
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        description: The initial index from which to return the results.
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ExternalUnresolved'
+      tags:
+      - payout
+components:
+  schemas:
+    ExternalUnresolved:
+      required:
+      - deal_date
+      - deal_id
+      - deal_integration_id
+      - deal_integration_source
+      - deal_name
+      - deal_term_start_date
+      - deal_term_end_date
+      - deal_term_duration
+      - deal_uuid
+      - deal_value
+      - kind
+      - owed
+      - path_name
+      - plan_name
+      - target_user_email
+      - target_user_name
+      - value
+      type: object
+      properties:
+        updated_ts:
+          title: Updated ts
+          type: string
+          readOnly: true
+        deal_date:
+          title: Deal date
+          type: string
+          format: date
+        deal_id:
+          title: Deal id
+          type: integer
+        deal_integration_id:
+          title: Deal integration id
+          type: string
+          minLength: 1
+        deal_integration_source:
+          title: Deal integration source
+          type: string
+          minLength: 1
+        deal_name:
+          title: Deal name
+          type: string
+          minLength: 1
+        deal_term_start_date:
+          title: Deal term start date
+          type: string
+          format: date
+        deal_term_end_date:
+          title: Deal term end date
+          type: string
+          format: date
+        deal_term_duration:
+          title: Deal term duration
+          type: number
+        deal_uuid:
+          title: Deal uuid
+          description: deal id suitable for api usage
+          type: string
+          format: uuid
+        deal_value:
+          title: Deal value
+          description: Dollar amount of associated deal.
+          type: number
+        kind:
+          title: Kind
+          description: 'Kind of payout: one of unresolved or partially_resolved.'
+          type: string
+          minLength: 1
+        owed:
+          title: Owed
+          description: Dollar amount left unresolved.
+          type: number
+        path_name:
+          title: Path name
+          type: string
+          minLength: 1
+        plan_name:
+          title: Plan name
+          type: string
+          minLength: 1
+        target_user_email:
+          title: Target user email
+          type: string
+          minLength: 1
+        target_user_name:
+          title: Target user name
+          type: string
+          minLength: 1
+        value:
+          title: Value
+          description: Dollar amount already paid out.
+          type: number
+    ExternalPayout:
+      required:
+      - deal_term_duration
+      - target_user_name
+      - value
+      type: object
+      properties:
+        date:
+          title: Date
+          description: date of the payouts, distinct from creation date as the date payouts was performed
+          type: string
+          format: date
+        deal_date:
+          title: Deal date
+          description: deal date at time of creation
+          type: string
+          format: date
+          nullable: true
+        deal_id:
+          title: Deal id
+          description: nullable foreign key to deal (historical)
+          type: integer
+          maximum: 9223372036854776000
+          minimum: -9223372036854776000
+          nullable: true
+        deal_integration_id:
+          title: Deal integration id
+          description: deal integration id at time of creation
+          type: string
+          minLength: 1
+          nullable: true
+        deal_integration_source:
+          title: Deal integration source
+          description: deal integration source at time of creation
+          type: string
+          maxLength: 255
+          minLength: 1
+          nullable: true
+        deal_name:
+          title: Deal name
+          description: deal name at time of creation
+          type: string
+          maxLength: 255
+          minLength: 1
+          nullable: true
+        deal_term_start_date:
+          title: Deal term start date
+          description: optional deal metadata term_start_date at time of creation
+          type: string
+          format: date
+          nullable: true
+        deal_term_end_date:
+          title: Deal term end date
+          description: optional deal metadata term_end_date at time of creation
+          type: string
+          format: date
+          nullable: true
+        deal_term_duration:
+          title: Deal term duration
+          type: number
+        deal_uuid:
+          title: Deal uuid
+          description: optional deal uuid at time of creation
+          type: string
+          format: uuid
+          nullable: true
+        id:
+          title: Id
+          type: string
+          format: uuid
+          readOnly: true
+        path_name:
+          title: Path name
+          description: path name at time of creation
+          type: string
+          maxLength: 255
+          minLength: 1
+          nullable: true
+        plan_name:
+          title: Plan name
+          description: Plan name at time of creation
+          type: string
+          maxLength: 255
+          minLength: 1
+          nullable: true
+        target_user_email:
+          title: Target user email
+          description: User email (historical)
+          type: string
+          minLength: 1
+          nullable: true
+        target_user_name:
+          title: Target user name
+          description: User first + last name, or email if unavailable, at time of creation
+          type: string
+          minLength: 1
+        updated_ts:
+          title: Updated ts
+          type: string
+          readOnly: true
+        value:
+          title: Value
+          type: number
+  securitySchemes:
+    token_auth:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: 'API Key authentication header. Prefix QuotaPath-generated api key with ''Token '' in Authorization header value. Example: ''Token abcdef12345'''

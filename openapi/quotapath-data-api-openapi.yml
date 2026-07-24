@@ -1,0 +1,70 @@
+openapi: 3.0.0
+info:
+  title: QuotaPath data API
+  description: Documentation for the QuotaPath API
+  x-logo:
+    url: https://storage.googleapis.com/quotapath-prod-app/qp_logos/logo_primary.png
+    href: https://quotapath.com
+  version: v1
+servers:
+- url: https://api.quotapath.com/v1
+security:
+- token_auth: []
+tags:
+- name: data
+paths:
+  /data/bulk-import/:
+    parameters: []
+    post:
+      operationId: data_bulk-import_create
+      description: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExternalUniApiUpsert'
+        required: true
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExternalUniApiUpsert'
+      tags:
+      - data
+components:
+  schemas:
+    ExternalUniApiUpsert:
+      required:
+      - data_id_field
+      - data_source
+      - data_type
+      - data
+      type: object
+      properties:
+        data_id_field:
+          title: Data id field
+          description: data key to use for each element, such as 'id'
+          type: string
+          minLength: 1
+        data_source:
+          title: Data source
+          description: source of data, such as 'salesforce'
+          type: string
+          minLength: 1
+        data_type:
+          title: Data type
+          description: type of data for this source, such as 'opportunity'
+          type: string
+          minLength: 1
+        data:
+          title: Data
+          description: list of json blobs or single item to represent data for import. Must include field specified by 'data_id_field'
+          type: string
+  securitySchemes:
+    token_auth:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: 'API Key authentication header. Prefix QuotaPath-generated api key with ''Token '' in Authorization header value. Example: ''Token abcdef12345'''

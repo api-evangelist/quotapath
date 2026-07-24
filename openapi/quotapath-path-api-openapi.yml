@@ -1,0 +1,94 @@
+openapi: 3.0.0
+info:
+  title: QuotaPath data path API
+  description: Documentation for the QuotaPath API
+  x-logo:
+    url: https://storage.googleapis.com/quotapath-prod-app/qp_logos/logo_primary.png
+    href: https://quotapath.com
+  version: v1
+servers:
+- url: https://api.quotapath.com/v1
+security:
+- token_auth: []
+tags:
+- name: path
+paths:
+  /path/{path_uuid}/quota/assignments/:
+    parameters:
+    - name: path_uuid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: path_quota_assignments_list
+      description: ''
+      parameters:
+      - name: limit
+        in: query
+        description: Number of results to return per page.
+        required: false
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        description: The initial index from which to return the results.
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+      tags:
+      - path
+    post:
+      operationId: path_quota_assignments_create
+      description: ''
+      responses:
+        '201':
+          description: ''
+      tags:
+      - path
+  /path/{path_uuid}/quota/values/:
+    parameters:
+    - name: path_uuid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: path_quota_values_list
+      description: ''
+      parameters:
+      - name: limit
+        in: query
+        description: Number of results to return per page.
+        required: false
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        description: The initial index from which to return the results.
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+      tags:
+      - path
+    post:
+      operationId: path_quota_values_create
+      description: ''
+      responses:
+        '201':
+          description: ''
+      tags:
+      - path
+components:
+  securitySchemes:
+    token_auth:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: 'API Key authentication header. Prefix QuotaPath-generated api key with ''Token '' in Authorization header value. Example: ''Token abcdef12345'''
