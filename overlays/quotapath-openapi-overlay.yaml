@@ -1,0 +1,25 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for QuotaPath API
+  version: 1.0.0
+extends: openapi/quotapath-openapi-original.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: quotapath
+    x-apievangelist-auth: api-key (Authorization Token header)
+    x-apievangelist-pagination: limit-offset
+    x-apievangelist-tier: Premium (API access)
+- target: $.info
+  update:
+    x-apievangelist-compliance:
+    - SOC 2
+    - ISO 27001
+- target: $.tags
+  update:
+  - name: deal
+    description: Deals booked and pushed to QuotaPath for commission calculation.
+  - name: payout
+    description: Resolved and unresolved commission payouts.
+  - name: quota
+    description: Quota assignments and values per commission path.

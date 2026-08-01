@@ -1,7 +1,16 @@
 aid: quotapath
 name: QuotaPath
-description: QuotaPath is a company surfaced as a portfolio company of insight-partners and added to the
-  API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  QuotaPath is a sales commission tracking and compensation management platform
+  that helps revenue, finance, and sales operations teams design, automate, and
+  audit variable-pay programs. It sits as a system of record between a company's
+  CRM, finance stack, and payroll — pulling deals from HubSpot and Salesforce,
+  applying commission plans, quotas, and ASC 606 ledger logic, and syncing
+  payouts to accounting and HRIS systems like QuickBooks, NetSuite, and Rippling.
+  QuotaPath exposes a REST API (available on the Premium tier) for pushing deals,
+  reading payouts, managing quota assignments, and building custom CRM and
+  payroll integrations. The API uses token-based API-key authentication over
+  https://api.quotapath.com/v1 with limit/offset pagination.
 url: https://raw.githubusercontent.com/api-evangelist/quotapath/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -9,17 +18,179 @@ x-backed-by:
 - insight-partners
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 17
+  pass: local-v1
+image: https://storage.googleapis.com/quotapath-prod-app/qp_logos/logo_primary.png
 tags:
 - Company
-apis: []
+- Sales Commissions
+- Compensation Management
+- Sales Operations
+- Revenue Operations
+- Finance
+- Payouts
+- CRM Integration
+- Payroll
+apis:
+- aid: quotapath:quotapath-data-api
+  name: QuotaPath data API
+  description: The data API from QuotaPath — 1 operation(s) for data.
+  humanURL: https://api.quotapath.com/docs/
+  baseURL: https://api.quotapath.com/v1
+  tags:
+  - data
+  properties:
+  - type: OpenAPI
+    url: openapi/quotapath-data-api-openapi.yml
+  - type: APIReference
+    url: https://api.quotapath.com/docs/
+- aid: quotapath:quotapath-deal-api
+  name: QuotaPath deal API
+  description: The deal API from QuotaPath — 3 operation(s) for deal.
+  humanURL: https://api.quotapath.com/docs/
+  baseURL: https://api.quotapath.com/v1
+  tags:
+  - deal
+  properties:
+  - type: OpenAPI
+    url: openapi/quotapath-deal-api-openapi.yml
+  - type: APIReference
+    url: https://api.quotapath.com/docs/
+- aid: quotapath:quotapath-path-api
+  name: QuotaPath path API
+  description: The path API from QuotaPath — 2 operation(s) for path.
+  humanURL: https://api.quotapath.com/docs/
+  baseURL: https://api.quotapath.com/v1
+  tags:
+  - path
+  properties:
+  - type: OpenAPI
+    url: openapi/quotapath-path-api-openapi.yml
+  - type: APIReference
+    url: https://api.quotapath.com/docs/
+- aid: quotapath:quotapath-payout-api
+  name: QuotaPath payout API
+  description: The payout API from QuotaPath — 3 operation(s) for payout.
+  humanURL: https://api.quotapath.com/docs/
+  baseURL: https://api.quotapath.com/v1
+  tags:
+  - payout
+  properties:
+  - type: OpenAPI
+    url: openapi/quotapath-payout-api-openapi.yml
+  - type: APIReference
+    url: https://api.quotapath.com/docs/
+- aid: quotapath:quotapath-plan-api
+  name: QuotaPath plan API
+  description: The plan API from QuotaPath — 1 operation(s) for plan.
+  humanURL: https://api.quotapath.com/docs/
+  baseURL: https://api.quotapath.com/v1
+  tags:
+  - plan
+  properties:
+  - type: OpenAPI
+    url: openapi/quotapath-plan-api-openapi.yml
+  - type: APIReference
+    url: https://api.quotapath.com/docs/
+- aid: quotapath:quotapath-team-api
+  name: QuotaPath team API
+  description: The team API from QuotaPath — 1 operation(s) for team.
+  humanURL: https://api.quotapath.com/docs/
+  baseURL: https://api.quotapath.com/v1
+  tags:
+  - team
+  properties:
+  - type: OpenAPI
+    url: openapi/quotapath-team-api-openapi.yml
+  - type: APIReference
+    url: https://api.quotapath.com/docs/
+- aid: quotapath:quotapath-user-api
+  name: QuotaPath user API
+  description: The user API from QuotaPath — 1 operation(s) for user.
+  humanURL: https://api.quotapath.com/docs/
+  baseURL: https://api.quotapath.com/v1
+  tags:
+  - user
+  properties:
+  - type: OpenAPI
+    url: openapi/quotapath-user-api-openapi.yml
+  - type: APIReference
+    url: https://api.quotapath.com/docs/
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: AgenticAccess
+  url: agentic-access/quotapath-agentic-access.yml
+- type: TrustCenter
+  url: security/quotapath-trust-center.yml
+- type: DomainSecurity
+  url: security/quotapath-domain-security.yml
+- type: Authentication
+  url: authentication/quotapath-authentication.yml
+- type: MCPServer
+  url: mcp/quotapath-mcp.yml
+- type: LLMsTxt
+  url: llms/quotapath-llms.txt
+- type: Overlay
+  url: overlays/quotapath-openapi-overlay.yaml
+- type: Conventions
+  url: conventions/quotapath-conventions.yml
+- type: DataModel
+  url: data-model/quotapath-data-model.yml
+- type: Lifecycle
+  url: lifecycle/quotapath-lifecycle.yml
+- type: Conformance
+  url: conformance/quotapath-conformance.yml
+- type: Compliance
+  url: https://trust.quotapath.com/
+- type: AgentSkill
+  url: skills/_index.yml
 - type: Website
   url: https://www.quotapath.com/
+- type: Documentation
+  url: https://api.quotapath.com/docs/
+- type: APIReference
+  url: https://api.quotapath.com/docs/
+- type: DeveloperPortal
+  url: https://api.quotapath.com/docs/
+- type: Support
+  url: https://help.quotapath.com/
+- type: HelpCenter
+  url: https://help.quotapath.com/
+- type: Blog
+  url: https://www.quotapath.com/blog/
+- type: GitHubOrganization
+  url: https://github.com/quotapath
+- type: Pricing
+  url: https://www.quotapath.com/pricing/
+- type: SignUp
+  url: https://www.quotapath.com/trial-start/
+- type: Login
+  url: https://app.quotapath.com/login
+- type: TermsOfService
+  url: https://www.quotapath.com/site-terms/
+- type: PrivacyPolicy
+  url: https://www.quotapath.com/privacy/
+- type: Integrations
+  url: https://www.quotapath.com/integrations-hub/

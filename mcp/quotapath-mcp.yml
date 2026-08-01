@@ -1,0 +1,67 @@
+generated: '2026-07-20'
+method: derived
+status: candidate
+source: openapi/quotapath-openapi-original.json
+notes: >-
+  No official hosted/remote MCP server was found for QuotaPath (checked docs,
+  npm @modelcontextprotocol, and MCP registries). This is a candidate tool list
+  derived one-to-one from the QuotaPath REST API operations, to be published if
+  QuotaPath ships an MCP server.
+server:
+  name: quotapath
+  transport: http
+tools:
+- name: bulk_import_data
+  description: Upsert external data records into QuotaPath (generic bulk import).
+  source_operation: openapi/quotapath-openapi-original.json#data_bulk-import_create
+- name: list_deals
+  description: List filtered deals (by id, integration_id, path_id, user_email).
+  source_operation: openapi/quotapath-openapi-original.json#deal_list
+- name: create_deal
+  description: Create a single deal.
+  source_operation: openapi/quotapath-openapi-original.json#deal_create
+- name: bulk_create_deals
+  description: Create deals in bulk.
+  source_operation: openapi/quotapath-openapi-original.json#deal_bulk_create
+- name: get_deal
+  description: Retrieve a single deal by uuid.
+  source_operation: openapi/quotapath-openapi-original.json#deal
+- name: update_deal
+  description: Replace a deal by uuid.
+  source_operation: openapi/quotapath-openapi-original.json#deal_update
+- name: patch_deal
+  description: Partially update a deal by uuid.
+  source_operation: openapi/quotapath-openapi-original.json#deal_partial_update
+- name: delete_deal
+  description: Delete a deal by uuid.
+  source_operation: openapi/quotapath-openapi-original.json#deal_delete
+- name: list_quota_assignments
+  description: List quota assignments for a path.
+  source_operation: openapi/quotapath-openapi-original.json#path_quota_assignments_list
+- name: create_quota_assignment
+  description: Create quota assignments for a path.
+  source_operation: openapi/quotapath-openapi-original.json#path_quota_assignments_create
+- name: list_quota_values
+  description: List quota values for a path.
+  source_operation: openapi/quotapath-openapi-original.json#path_quota_values_list
+- name: create_quota_value
+  description: Create quota values for a path.
+  source_operation: openapi/quotapath-openapi-original.json#path_quota_values_create
+- name: list_payouts
+  description: List payouts (optionally filtered by updated_since).
+  source_operation: openapi/quotapath-openapi-original.json#payout_list
+- name: list_resolved_payouts
+  description: List resolved payouts.
+  source_operation: openapi/quotapath-openapi-original.json#payout_resolved_list
+- name: list_unresolved_payouts
+  description: List unresolved payouts.
+  source_operation: openapi/quotapath-openapi-original.json#payout_unresolved_list
+- name: list_plans
+  description: List commission plans.
+  source_operation: openapi/quotapath-openapi-original.json#plan_list
+- name: list_teams
+  description: List teams with members and managers.
+  source_operation: openapi/quotapath-openapi-original.json#team_list
+- name: list_users
+  description: List users in the workspace.
+  source_operation: openapi/quotapath-openapi-original.json#user_list

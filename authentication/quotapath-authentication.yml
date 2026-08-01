@@ -1,0 +1,17 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/quotapath-openapi-original.json
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: token_auth
+  type: apiKey
+  in: header
+  parameter: Authorization
+  description: 'API Key authentication header. Prefix QuotaPath-generated api key with ''Token
+    '' in Authorization header value. Example: ''Token abcdef12345'''
+  sources:
+  - openapi/quotapath-openapi-original.json

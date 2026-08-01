@@ -1,0 +1,20 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/quotapath-openapi-original.json
+versioning:
+  scheme: uri-path
+  current: v1
+  base_url: https://api.quotapath.com/v1
+  docs: https://api.quotapath.com/docs/
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: No deprecation or Sunset/Deprecation (RFC 8594) policy documented.
+status_page: null
+sla:
+  url: null
+deprecated_operations: []
+notes: >-
+  No dedicated public status page (status.quotapath.com resolves only to the
+  application SPA shell) and no published deprecation policy were found. Only the
+  URI-path v1 versioning is confirmed.

@@ -1,0 +1,26 @@
+{
+  "provider": "quotapath",
+  "sources": [
+    "quotapath-data-api-openapi.yml",
+    "quotapath-deal-api-openapi.yml",
+    "quotapath-path-api-openapi.yml",
+    "quotapath-payout-api-openapi.yml",
+    "quotapath-plan-api-openapi.yml",
+    "quotapath-team-api-openapi.yml",
+    "quotapath-user-api-openapi.yml"
+  ],
+  "outputs": [
+    "quotapath-data-api-openapi.yml",
+    "quotapath-deal-api-openapi.yml",
+    "quotapath-path-api-openapi.yml",
+    "quotapath-payout-api-openapi.yml",
+    "quotapath-plan-api-openapi.yml",
+    "quotapath-team-api-openapi.yml",
+    "quotapath-user-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

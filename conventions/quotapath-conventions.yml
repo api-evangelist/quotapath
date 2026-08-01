@@ -1,0 +1,54 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/quotapath-openapi-original.json
+summary: >-
+  Cross-cutting request/response semantics for the QuotaPath REST API, derived
+  from the OpenAPI definition and the developer docs at api.quotapath.com/docs/.
+authentication:
+  style: api-key
+  location: header
+  header: Authorization
+  format: "Token <api-key>"
+  notes: >-
+    API access is a Premium-tier feature. Prefix the QuotaPath-generated API key
+    with 'Token ' in the Authorization header. See authentication/quotapath-authentication.yml.
+pagination:
+  style: limit-offset
+  params:
+  - limit
+  - offset
+  response_fields:
+  - count
+  - next
+  - previous
+  - results
+  notes: >-
+    List endpoints return a paginated envelope { count, next, previous, results }.
+    'next'/'previous' are absolute URIs (nullable). Django REST Framework
+    LimitOffsetPagination.
+filtering:
+  notes: >-
+    /deal/ supports query params id, integration_id, path_id, user_email.
+    /payout/ and /payout/resolved/ support an updated_since incremental filter.
+idempotency:
+  supported: false
+  notes: >-
+    No idempotency-key header or parameter is documented in the OpenAPI or docs.
+    Bulk create endpoints (/deal/bulk/, /data/bulk-import/) use an external
+    integration_id / data_id_field for upsert-style de-duplication rather than a
+    request idempotency key.
+versioning:
+  scheme: uri-path
+  current: v1
+  base_url: https://api.quotapath.com/v1
+error_envelope:
+  notes: >-
+    The OpenAPI documents only 2xx responses (200/201/204). Error shapes are not
+    formally specified; the API is Django REST Framework, which conventionally
+    returns JSON error bodies with a 'detail' field on 4xx/5xx.
+rate_limiting:
+  notes: No rate-limit headers or documented quotas were found in the OpenAPI or docs.
+cross_links:
+  authentication: authentication/quotapath-authentication.yml
+  data_model: data-model/quotapath-data-model.yml
+  lifecycle: lifecycle/quotapath-lifecycle.yml

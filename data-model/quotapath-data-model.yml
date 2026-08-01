@@ -1,0 +1,81 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/quotapath-openapi-original.json
+entities:
+- name: Deal
+  schema: ExternalDeal
+  id_field: id
+  keys: [id, integration_id, integration_source, user_email]
+  notes: A booked deal that commissions are calculated from.
+- name: DealValue
+  schema: ExternalDealValue
+  keys: [path_id, value]
+  notes: A deal's value as applied to a specific commission path.
+- name: Payout
+  schema: ExternalPayout
+  id_field: id
+  keys: [id, deal_uuid, target_user_email, path_name, plan_name]
+- name: UnresolvedPayout
+  schema: ExternalUnresolved
+  keys: [deal_uuid, target_user_email, path_name, plan_name]
+- name: Assignment
+  schema: ExternalAssignment
+  keys: [email]
+- name: Path
+  schema: ExternalPath
+  id_field: id
+- name: Plan
+  schema: ExternalPlan
+  keys: [name]
+- name: Team
+  schema: ExternalTeam
+  id_field: id
+- name: User
+  schema: ExternalUser
+  id_field: id
+  keys: [id, email]
+relationships:
+- from: Deal
+  to: DealValue
+  kind: has_many
+  via: deal_values
+- from: Deal
+  to: User
+  kind: belongs_to
+  via: user_email
+- from: DealValue
+  to: Path
+  kind: belongs_to
+  via: path_id
+- from: Payout
+  to: Deal
+  kind: belongs_to
+  via: deal_uuid
+- from: Payout
+  to: User
+  kind: belongs_to
+  via: target_user_email
+- from: Payout
+  to: Path
+  kind: belongs_to
+  via: path_name
+- from: Payout
+  to: Plan
+  kind: belongs_to
+  via: plan_name
+- from: Plan
+  to: Path
+  kind: has_many
+  via: paths
+- from: Plan
+  to: Assignment
+  kind: has_many
+  via: assignments
+- from: Team
+  to: User
+  kind: has_many
+  via: current_members
+- from: Assignment
+  to: User
+  kind: belongs_to
+  via: email

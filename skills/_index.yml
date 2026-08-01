@@ -1,0 +1,16 @@
+generated: '2026-07-20'
+method: generated
+source: openapi/quotapath-openapi-original.json
+skills:
+- file: quotapath-push-deal.md
+  name: Push a deal and read its payout
+  api: openapi/quotapath-openapi-original.json
+  operations: [deal_create, deal, payout_resolved_list, payout_unresolved_list]
+- file: quotapath-bulk-sync.md
+  name: Bulk-sync deals from an external system
+  api: openapi/quotapath-openapi-original.json
+  operations: [deal_bulk_create, data_bulk-import_create, deal_list]
+- file: quotapath-manage-quotas.md
+  name: Manage quota assignments and values
+  api: openapi/quotapath-openapi-original.json
+  operations: [path_quota_assignments_list, path_quota_assignments_create, path_quota_values_list, path_quota_values_create]

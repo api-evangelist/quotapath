@@ -1,0 +1,1462 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "QuotaPath API",
+    "description": "Documentation for the QuotaPath API",
+    "x-logo": {
+      "url": "https://storage.googleapis.com/quotapath-prod-app/qp_logos/logo_primary.png",
+      "href": "https://quotapath.com"
+    },
+    "version": "v1"
+  },
+  "security": [
+    {
+      "token_auth": []
+    }
+  ],
+  "paths": {
+    "/data/bulk-import/": {
+      "post": {
+        "operationId": "data_bulk-import_create",
+        "description": "",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExternalUniApiUpsert"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExternalUniApiUpsert"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "data"
+        ]
+      },
+      "parameters": []
+    },
+    "/deal/": {
+      "get": {
+        "operationId": "deal_list",
+        "description": "List filtered deals or create deal with payload. No query params will list all\ndeals. Supported query params are 'id', 'integration_id', 'path_id', and 'user_email'.",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of results to return per page.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "The initial index from which to return the results.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": [
+                    "count",
+                    "results"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "count": {
+                      "type": "integer"
+                    },
+                    "next": {
+                      "type": "string",
+                      "format": "uri",
+                      "nullable": true
+                    },
+                    "previous": {
+                      "type": "string",
+                      "format": "uri",
+                      "nullable": true
+                    },
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ExternalDeal"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "deal"
+        ]
+      },
+      "post": {
+        "operationId": "deal_create",
+        "description": "List filtered deals or create deal with payload. No query params will list all\ndeals. Supported query params are 'id', 'integration_id', 'path_id', and 'user_email'.",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/ExternalDeal"
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExternalDeal"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "deal"
+        ]
+      },
+      "parameters": []
+    },
+    "/deal/bulk/": {
+      "post": {
+        "operationId": "deal_bulk_create",
+        "description": "Bulk update or create deals.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExternalBulkDealInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {}
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "deal"
+        ]
+      },
+      "parameters": []
+    },
+    "/deal/{uuid}/": {
+      "get": {
+        "operationId": "deal",
+        "description": "View for retrieve, update, delete based on deal uuid",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExternalDeal"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "deal"
+        ]
+      },
+      "put": {
+        "operationId": "deal_update",
+        "description": "View for retrieve, update, delete based on deal uuid",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/ExternalDeal"
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExternalDeal"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "deal"
+        ]
+      },
+      "patch": {
+        "operationId": "deal_partial_update",
+        "description": "View for retrieve, update, delete based on deal uuid",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/ExternalDeal"
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExternalDeal"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "deal"
+        ]
+      },
+      "delete": {
+        "operationId": "deal_delete",
+        "description": "View for retrieve, update, delete based on deal uuid",
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "deal"
+        ]
+      },
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "/path/{path_uuid}/quota/assignments/": {
+      "get": {
+        "operationId": "path_quota_assignments_list",
+        "description": "",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of results to return per page.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "The initial index from which to return the results.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "path"
+        ]
+      },
+      "post": {
+        "operationId": "path_quota_assignments_create",
+        "description": "",
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "path"
+        ]
+      },
+      "parameters": [
+        {
+          "name": "path_uuid",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "/path/{path_uuid}/quota/values/": {
+      "get": {
+        "operationId": "path_quota_values_list",
+        "description": "",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of results to return per page.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "The initial index from which to return the results.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "path"
+        ]
+      },
+      "post": {
+        "operationId": "path_quota_values_create",
+        "description": "",
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "path"
+        ]
+      },
+      "parameters": [
+        {
+          "name": "path_uuid",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "/payout/": {
+      "get": {
+        "operationId": "payout_list",
+        "description": "",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of results to return per page.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "The initial index from which to return the results.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "updated_since",
+            "in": "query",
+            "description": "Unix timestamp in seconds. Specify to only return records updated after this timestamp.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": [
+                    "count",
+                    "results"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "count": {
+                      "type": "integer"
+                    },
+                    "next": {
+                      "type": "string",
+                      "format": "uri",
+                      "nullable": true
+                    },
+                    "previous": {
+                      "type": "string",
+                      "format": "uri",
+                      "nullable": true
+                    },
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ExternalPayout"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "payout"
+        ]
+      },
+      "parameters": []
+    },
+    "/payout/resolved/": {
+      "get": {
+        "operationId": "payout_resolved_list",
+        "description": "",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of results to return per page.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "The initial index from which to return the results.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "updated_since",
+            "in": "query",
+            "description": "Unix timestamp in seconds. Specify to only return records updated after this timestamp.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": [
+                    "count",
+                    "results"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "count": {
+                      "type": "integer"
+                    },
+                    "next": {
+                      "type": "string",
+                      "format": "uri",
+                      "nullable": true
+                    },
+                    "previous": {
+                      "type": "string",
+                      "format": "uri",
+                      "nullable": true
+                    },
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ExternalPayout"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "payout"
+        ]
+      },
+      "parameters": []
+    },
+    "/payout/unresolved/": {
+      "get": {
+        "operationId": "payout_unresolved_list",
+        "description": "",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of results to return per page.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "The initial index from which to return the results.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": [
+                    "count",
+                    "results"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "count": {
+                      "type": "integer"
+                    },
+                    "next": {
+                      "type": "string",
+                      "format": "uri",
+                      "nullable": true
+                    },
+                    "previous": {
+                      "type": "string",
+                      "format": "uri",
+                      "nullable": true
+                    },
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ExternalUnresolved"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "payout"
+        ]
+      },
+      "parameters": []
+    },
+    "/plan/": {
+      "get": {
+        "operationId": "plan_list",
+        "description": "",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of results to return per page.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "The initial index from which to return the results.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": [
+                    "count",
+                    "results"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "count": {
+                      "type": "integer"
+                    },
+                    "next": {
+                      "type": "string",
+                      "format": "uri",
+                      "nullable": true
+                    },
+                    "previous": {
+                      "type": "string",
+                      "format": "uri",
+                      "nullable": true
+                    },
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ExternalPlan"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "plan"
+        ]
+      },
+      "parameters": []
+    },
+    "/team/": {
+      "get": {
+        "operationId": "team_list",
+        "description": "This view gets the workspace's team IDs + names\nalong with lists of the current member & manager emails",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of results to return per page.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "The initial index from which to return the results.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": [
+                    "count",
+                    "results"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "count": {
+                      "type": "integer"
+                    },
+                    "next": {
+                      "type": "string",
+                      "format": "uri",
+                      "nullable": true
+                    },
+                    "previous": {
+                      "type": "string",
+                      "format": "uri",
+                      "nullable": true
+                    },
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ExternalTeam"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "team"
+        ]
+      },
+      "parameters": []
+    },
+    "/user/": {
+      "get": {
+        "operationId": "user_list",
+        "description": "",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of results to return per page.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "The initial index from which to return the results.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": [
+                    "count",
+                    "results"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "count": {
+                      "type": "integer"
+                    },
+                    "next": {
+                      "type": "string",
+                      "format": "uri",
+                      "nullable": true
+                    },
+                    "previous": {
+                      "type": "string",
+                      "format": "uri",
+                      "nullable": true
+                    },
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ExternalUser"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "user"
+        ]
+      },
+      "parameters": []
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.quotapath.com/v1"
+    }
+  ],
+  "components": {
+    "requestBodies": {
+      "ExternalDeal": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ExternalDeal"
+            }
+          }
+        },
+        "required": true
+      }
+    },
+    "securitySchemes": {
+      "token_auth": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header",
+        "description": "API Key authentication header. Prefix QuotaPath-generated api key with 'Token ' in Authorization header value. Example: 'Token abcdef12345'"
+      }
+    },
+    "schemas": {
+      "ExternalUniApiUpsert": {
+        "required": [
+          "data_id_field",
+          "data_source",
+          "data_type",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data_id_field": {
+            "title": "Data id field",
+            "description": "data key to use for each element, such as 'id'",
+            "type": "string",
+            "minLength": 1
+          },
+          "data_source": {
+            "title": "Data source",
+            "description": "source of data, such as 'salesforce'",
+            "type": "string",
+            "minLength": 1
+          },
+          "data_type": {
+            "title": "Data type",
+            "description": "type of data for this source, such as 'opportunity'",
+            "type": "string",
+            "minLength": 1
+          },
+          "data": {
+            "title": "Data",
+            "description": "list of json blobs or single item to represent data for import. Must include field specified by 'data_id_field'",
+            "type": "string"
+          }
+        }
+      },
+      "ExternalDealValue": {
+        "required": [
+          "value",
+          "path_id"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "title": "Value",
+            "description": "deal amount as number",
+            "type": "number"
+          },
+          "path_id": {
+            "title": "Path id",
+            "description": "path this dealvalue applies to",
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      },
+      "ExternalDealMetadata": {
+        "required": [
+          "date_field_1",
+          "date_field_2",
+          "number_field_1"
+        ],
+        "type": "object",
+        "properties": {
+          "date_field_1": {
+            "title": "Date field 1",
+            "type": "string",
+            "format": "date"
+          },
+          "date_field_2": {
+            "title": "Date field 2",
+            "type": "string",
+            "format": "date"
+          },
+          "number_field_1": {
+            "title": "Number field 1",
+            "type": "string",
+            "format": "decimal"
+          }
+        },
+        "nullable": true
+      },
+      "ExternalDeal": {
+        "required": [
+          "deal_values",
+          "name",
+          "user_email"
+        ],
+        "type": "object",
+        "properties": {
+          "admin_locked": {
+            "title": "Admin locked",
+            "type": "boolean"
+          },
+          "created_date": {
+            "title": "Created date",
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "date": {
+            "title": "Date",
+            "type": "string",
+            "format": "date"
+          },
+          "deal_values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ExternalDealValue"
+            },
+            "minItems": 1
+          },
+          "id": {
+            "title": "Id",
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true
+          },
+          "integration_id": {
+            "title": "Integration id",
+            "description": "Unique foreign key from data-integration, paired with source",
+            "type": "string",
+            "minLength": 1,
+            "nullable": true
+          },
+          "integration_source": {
+            "title": "Integration source",
+            "description": "Source metadata for data-integration, here to keep relevant source info close at hand to the quotapath API/UI, and allow for upsert logic",
+            "type": "string",
+            "enum": [
+              "api",
+              "close",
+              "hubspot",
+              "salesforce",
+              "bulk",
+              "universal"
+            ],
+            "readOnly": true,
+            "nullable": true
+          },
+          "name": {
+            "title": "Name",
+            "type": "string",
+            "maxLength": 255,
+            "minLength": 1
+          },
+          "state": {
+            "title": "State",
+            "type": "string",
+            "enum": [
+              "closed",
+              "open",
+              "lost"
+            ]
+          },
+          "updated_date": {
+            "title": "Updated date",
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "user_email": {
+            "title": "User email",
+            "description": "deal owner email",
+            "type": "string",
+            "format": "email",
+            "minLength": 1
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/ExternalDealMetadata"
+          }
+        }
+      },
+      "ExternalBulkDeal": {
+        "required": [
+          "deal_values",
+          "name",
+          "user_email"
+        ],
+        "type": "object",
+        "properties": {
+          "admin_locked": {
+            "title": "Admin locked",
+            "type": "boolean"
+          },
+          "created_date": {
+            "title": "Created date",
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "date": {
+            "title": "Date",
+            "type": "string",
+            "format": "date"
+          },
+          "deal_values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ExternalDealValue"
+            },
+            "minItems": 1
+          },
+          "id": {
+            "title": "Id",
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true
+          },
+          "integration_id": {
+            "title": "Integration id",
+            "description": "Unique foreign key from data-integration, paired with source",
+            "type": "string",
+            "minLength": 1,
+            "nullable": true
+          },
+          "integration_source": {
+            "title": "Integration source",
+            "description": "Source metadata for data-integration, here to keep relevant source info close at hand to the quotapath API/UI, and allow for upsert logic",
+            "type": "string",
+            "enum": [
+              "api",
+              "close",
+              "hubspot",
+              "salesforce",
+              "bulk",
+              "universal"
+            ],
+            "readOnly": true,
+            "nullable": true
+          },
+          "name": {
+            "title": "Name",
+            "type": "string",
+            "maxLength": 255,
+            "minLength": 1
+          },
+          "state": {
+            "title": "State",
+            "type": "string",
+            "enum": [
+              "closed",
+              "open",
+              "lost"
+            ]
+          },
+          "updated_date": {
+            "title": "Updated date",
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "user_email": {
+            "title": "User email",
+            "description": "deal owner email",
+            "type": "string",
+            "format": "email",
+            "minLength": 1
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/ExternalDealMetadata"
+          }
+        }
+      },
+      "ExternalBulkDealInput": {
+        "required": [
+          "deals"
+        ],
+        "type": "object",
+        "properties": {
+          "deals": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ExternalBulkDeal"
+            }
+          }
+        }
+      },
+      "ExternalPayout": {
+        "required": [
+          "deal_term_duration",
+          "target_user_name",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "date": {
+            "title": "Date",
+            "description": "date of the payouts, distinct from creation date as the date payouts was performed",
+            "type": "string",
+            "format": "date"
+          },
+          "deal_date": {
+            "title": "Deal date",
+            "description": "deal date at time of creation",
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "deal_id": {
+            "title": "Deal id",
+            "description": "nullable foreign key to deal (historical)",
+            "type": "integer",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "nullable": true
+          },
+          "deal_integration_id": {
+            "title": "Deal integration id",
+            "description": "deal integration id at time of creation",
+            "type": "string",
+            "minLength": 1,
+            "nullable": true
+          },
+          "deal_integration_source": {
+            "title": "Deal integration source",
+            "description": "deal integration source at time of creation",
+            "type": "string",
+            "maxLength": 255,
+            "minLength": 1,
+            "nullable": true
+          },
+          "deal_name": {
+            "title": "Deal name",
+            "description": "deal name at time of creation",
+            "type": "string",
+            "maxLength": 255,
+            "minLength": 1,
+            "nullable": true
+          },
+          "deal_term_start_date": {
+            "title": "Deal term start date",
+            "description": "optional deal metadata term_start_date at time of creation",
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "deal_term_end_date": {
+            "title": "Deal term end date",
+            "description": "optional deal metadata term_end_date at time of creation",
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "deal_term_duration": {
+            "title": "Deal term duration",
+            "type": "number"
+          },
+          "deal_uuid": {
+            "title": "Deal uuid",
+            "description": "optional deal uuid at time of creation",
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "id": {
+            "title": "Id",
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true
+          },
+          "path_name": {
+            "title": "Path name",
+            "description": "path name at time of creation",
+            "type": "string",
+            "maxLength": 255,
+            "minLength": 1,
+            "nullable": true
+          },
+          "plan_name": {
+            "title": "Plan name",
+            "description": "Plan name at time of creation",
+            "type": "string",
+            "maxLength": 255,
+            "minLength": 1,
+            "nullable": true
+          },
+          "target_user_email": {
+            "title": "Target user email",
+            "description": "User email (historical)",
+            "type": "string",
+            "minLength": 1,
+            "nullable": true
+          },
+          "target_user_name": {
+            "title": "Target user name",
+            "description": "User first + last name, or email if unavailable, at time of creation",
+            "type": "string",
+            "minLength": 1
+          },
+          "updated_ts": {
+            "title": "Updated ts",
+            "type": "string",
+            "readOnly": true
+          },
+          "value": {
+            "title": "Value",
+            "type": "number"
+          }
+        }
+      },
+      "ExternalUnresolved": {
+        "required": [
+          "deal_date",
+          "deal_id",
+          "deal_integration_id",
+          "deal_integration_source",
+          "deal_name",
+          "deal_term_start_date",
+          "deal_term_end_date",
+          "deal_term_duration",
+          "deal_uuid",
+          "deal_value",
+          "kind",
+          "owed",
+          "path_name",
+          "plan_name",
+          "target_user_email",
+          "target_user_name",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "updated_ts": {
+            "title": "Updated ts",
+            "type": "string",
+            "readOnly": true
+          },
+          "deal_date": {
+            "title": "Deal date",
+            "type": "string",
+            "format": "date"
+          },
+          "deal_id": {
+            "title": "Deal id",
+            "type": "integer"
+          },
+          "deal_integration_id": {
+            "title": "Deal integration id",
+            "type": "string",
+            "minLength": 1
+          },
+          "deal_integration_source": {
+            "title": "Deal integration source",
+            "type": "string",
+            "minLength": 1
+          },
+          "deal_name": {
+            "title": "Deal name",
+            "type": "string",
+            "minLength": 1
+          },
+          "deal_term_start_date": {
+            "title": "Deal term start date",
+            "type": "string",
+            "format": "date"
+          },
+          "deal_term_end_date": {
+            "title": "Deal term end date",
+            "type": "string",
+            "format": "date"
+          },
+          "deal_term_duration": {
+            "title": "Deal term duration",
+            "type": "number"
+          },
+          "deal_uuid": {
+            "title": "Deal uuid",
+            "description": "deal id suitable for api usage",
+            "type": "string",
+            "format": "uuid"
+          },
+          "deal_value": {
+            "title": "Deal value",
+            "description": "Dollar amount of associated deal.",
+            "type": "number"
+          },
+          "kind": {
+            "title": "Kind",
+            "description": "Kind of payout: one of unresolved or partially_resolved.",
+            "type": "string",
+            "minLength": 1
+          },
+          "owed": {
+            "title": "Owed",
+            "description": "Dollar amount left unresolved.",
+            "type": "number"
+          },
+          "path_name": {
+            "title": "Path name",
+            "type": "string",
+            "minLength": 1
+          },
+          "plan_name": {
+            "title": "Plan name",
+            "type": "string",
+            "minLength": 1
+          },
+          "target_user_email": {
+            "title": "Target user email",
+            "type": "string",
+            "minLength": 1
+          },
+          "target_user_name": {
+            "title": "Target user name",
+            "type": "string",
+            "minLength": 1
+          },
+          "value": {
+            "title": "Value",
+            "description": "Dollar amount already paid out.",
+            "type": "number"
+          }
+        }
+      },
+      "ExternalAssignment": {
+        "required": [
+          "email"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "title": "Email",
+            "type": "string",
+            "format": "email",
+            "minLength": 1
+          },
+          "start_date": {
+            "title": "Start date",
+            "type": "string",
+            "format": "date",
+            "readOnly": true,
+            "nullable": true
+          },
+          "end_date": {
+            "title": "End date",
+            "type": "string",
+            "format": "date",
+            "readOnly": true,
+            "nullable": true
+          }
+        }
+      },
+      "ExternalPath": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true
+          },
+          "name": {
+            "title": "Name",
+            "type": "string",
+            "readOnly": true,
+            "minLength": 1
+          }
+        }
+      },
+      "ExternalPlan": {
+        "required": [
+          "assignments",
+          "paths"
+        ],
+        "type": "object",
+        "properties": {
+          "assignments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ExternalAssignment"
+            }
+          },
+          "name": {
+            "title": "Name",
+            "type": "string",
+            "readOnly": true,
+            "minLength": 1
+          },
+          "paths": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ExternalPath"
+            }
+          }
+        }
+      },
+      "ExternalTeam": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "ID",
+            "type": "integer",
+            "readOnly": true
+          },
+          "name": {
+            "title": "Name",
+            "description": "The team name.",
+            "type": "string",
+            "readOnly": true,
+            "minLength": 1
+          },
+          "current_members": {
+            "title": "Current members",
+            "description": "list of emails for current members of team",
+            "type": "string",
+            "readOnly": true
+          },
+          "current_managers": {
+            "title": "Current managers",
+            "description": "list of emails for current managers of team",
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "ExternalUser": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "title": "Email",
+            "type": "string",
+            "format": "email",
+            "readOnly": true,
+            "minLength": 1
+          },
+          "id": {
+            "title": "Id",
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true
+          },
+          "name": {
+            "title": "Name",
+            "type": "string",
+            "readOnly": true,
+            "minLength": 1
+          }
+        }
+      }
+    }
+  }
+}
