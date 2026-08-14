@@ -32,11 +32,11 @@ accessModel:
   method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-20'
+modified: '2026-08-14'
 x-enrichment:
-  date: '2026-07-20'
+  date: '2026-08-14'
   status: enriched
-  artifacts_added: 17
+  artifacts_added: 6
   pass: local-v1
 image: https://storage.googleapis.com/quotapath-prod-app/qp_logos/logo_primary.png
 tags:
@@ -194,3 +194,13 @@ common:
   url: https://www.quotapath.com/privacy/
 - type: Integrations
   url: https://www.quotapath.com/integrations-hub/
+- type: GettingStarted
+  url: https://help.quotapath.com/en/articles/8097859-api-documentation
+- type: Packages
+  url: packages/quotapath-packages.yml
+- type: Plans
+  url: plans/quotapath-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/quotapath-rate-limits.yml
+- type: ErrorCatalog
+  url: errors/quotapath-problem-types.yml
