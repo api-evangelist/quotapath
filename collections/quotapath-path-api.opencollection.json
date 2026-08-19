@@ -1,0 +1,118 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "QuotaPath data path API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "path",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "path_quota_assignments_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.quotapath.com/v1/path/:path_uuid/quota/assignments/",
+            "params": [
+              {
+                "name": "path_uuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "path_quota_assignments_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.quotapath.com/v1/path/:path_uuid/quota/assignments/",
+            "params": [
+              {
+                "name": "path_uuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "path_quota_values_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.quotapath.com/v1/path/:path_uuid/quota/values/",
+            "params": [
+              {
+                "name": "path_uuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "path_quota_values_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.quotapath.com/v1/path/:path_uuid/quota/values/",
+            "params": [
+              {
+                "name": "path_uuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

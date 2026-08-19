@@ -1,0 +1,376 @@
+{
+  "item": [
+    {
+      "id": "3cd42daa-f349-4312-b59a-3030c0bfbb0e",
+      "name": "payout",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ef3e26bb-9139-4024-b860-3e0429744c68",
+          "name": "payout list",
+          "request": {
+            "name": "payout list",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payout",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The initial index from which to return the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "updated_since",
+                  "value": "<integer>",
+                  "description": "Unix timestamp in seconds. Specify to only return records updated after this timestamp."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6d143b0a-28a6-4e3f-a210-54f262405c8c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payout",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 7458,\n  \"results\": [\n    {\n      \"deal_term_duration\": 7710.679185068724,\n      \"target_user_name\": \"string\",\n      \"value\": 5834.238630090263,\n      \"date\": \"2003-02-28\",\n      \"deal_date\": \"2021-04-22\",\n      \"deal_id\": -9097417398402853000,\n      \"deal_integration_id\": \"string\",\n      \"deal_integration_source\": \"string\",\n      \"deal_name\": \"string\",\n      \"deal_term_start_date\": \"2019-01-21\",\n      \"deal_term_end_date\": \"1988-06-08\",\n      \"deal_uuid\": \"9bfc239a-68ee-ff84-0362-73ef2c26e005\",\n      \"id\": \"484b4fab-acc5-5c39-e0e9-1108fdab2392\",\n      \"path_name\": \"string\",\n      \"plan_name\": \"string\",\n      \"target_user_email\": \"string\",\n      \"updated_ts\": \"string\"\n    },\n    {\n      \"deal_term_duration\": 6452.626211694399,\n      \"target_user_name\": \"string\",\n      \"value\": 1975.4333704724459,\n      \"date\": \"1975-07-30\",\n      \"deal_date\": \"2023-11-28\",\n      \"deal_id\": 1735384097746485200,\n      \"deal_integration_id\": \"string\",\n      \"deal_integration_source\": \"string\",\n      \"deal_name\": \"string\",\n      \"deal_term_start_date\": \"1962-08-13\",\n      \"deal_term_end_date\": \"2014-12-11\",\n      \"deal_uuid\": \"cbd6544d-d3d2-bbd5-da6c-457cc0837131\",\n      \"id\": \"013de935-c8af-649f-912e-660d69578686\",\n      \"path_name\": \"string\",\n      \"plan_name\": \"string\",\n      \"target_user_email\": \"string\",\n      \"updated_ts\": \"string\"\n    }\n  ],\n  \"next\": \"http://aUyrvSoFaMU.vinlzJHnjwaYyQmQ6Gw4Q\",\n  \"previous\": \"http://DJIazCgfzhJAQXPymBCGAsNPO.mrhRBKRA+Nl+GnQk0YIRMW900Ge4eY8TqSviil3W+j.lIukXR-Nj\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c5454ccb-5fdd-43ea-a0b5-acedce076a13",
+          "name": "payout resolved list",
+          "request": {
+            "name": "payout resolved list",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payout",
+                "resolved",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The initial index from which to return the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "updated_since",
+                  "value": "<integer>",
+                  "description": "Unix timestamp in seconds. Specify to only return records updated after this timestamp."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "650348ee-98fa-4bbd-98b6-9f5dc6747463",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payout",
+                    "resolved",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 7458,\n  \"results\": [\n    {\n      \"deal_term_duration\": 7710.679185068724,\n      \"target_user_name\": \"string\",\n      \"value\": 5834.238630090263,\n      \"date\": \"2003-02-28\",\n      \"deal_date\": \"2021-04-22\",\n      \"deal_id\": -9097417398402853000,\n      \"deal_integration_id\": \"string\",\n      \"deal_integration_source\": \"string\",\n      \"deal_name\": \"string\",\n      \"deal_term_start_date\": \"2019-01-21\",\n      \"deal_term_end_date\": \"1988-06-08\",\n      \"deal_uuid\": \"9bfc239a-68ee-ff84-0362-73ef2c26e005\",\n      \"id\": \"484b4fab-acc5-5c39-e0e9-1108fdab2392\",\n      \"path_name\": \"string\",\n      \"plan_name\": \"string\",\n      \"target_user_email\": \"string\",\n      \"updated_ts\": \"string\"\n    },\n    {\n      \"deal_term_duration\": 6452.626211694399,\n      \"target_user_name\": \"string\",\n      \"value\": 1975.4333704724459,\n      \"date\": \"1975-07-30\",\n      \"deal_date\": \"2023-11-28\",\n      \"deal_id\": 1735384097746485200,\n      \"deal_integration_id\": \"string\",\n      \"deal_integration_source\": \"string\",\n      \"deal_name\": \"string\",\n      \"deal_term_start_date\": \"1962-08-13\",\n      \"deal_term_end_date\": \"2014-12-11\",\n      \"deal_uuid\": \"cbd6544d-d3d2-bbd5-da6c-457cc0837131\",\n      \"id\": \"013de935-c8af-649f-912e-660d69578686\",\n      \"path_name\": \"string\",\n      \"plan_name\": \"string\",\n      \"target_user_email\": \"string\",\n      \"updated_ts\": \"string\"\n    }\n  ],\n  \"next\": \"http://aUyrvSoFaMU.vinlzJHnjwaYyQmQ6Gw4Q\",\n  \"previous\": \"http://DJIazCgfzhJAQXPymBCGAsNPO.mrhRBKRA+Nl+GnQk0YIRMW900Ge4eY8TqSviil3W+j.lIukXR-Nj\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6028b1dd-d617-40e1-a33d-d209eb7909c6",
+          "name": "payout unresolved list",
+          "request": {
+            "name": "payout unresolved list",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payout",
+                "unresolved",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The initial index from which to return the results."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "23e66f91-d2ad-4c9e-ae2d-643e9bee1f75",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payout",
+                    "unresolved",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 5775,\n  \"results\": [\n    {\n      \"deal_date\": \"2013-12-26\",\n      \"deal_id\": 3380,\n      \"deal_integration_id\": \"string\",\n      \"deal_integration_source\": \"string\",\n      \"deal_name\": \"string\",\n      \"deal_term_start_date\": \"2017-03-27\",\n      \"deal_term_end_date\": \"1993-01-08\",\n      \"deal_term_duration\": 8087.312395176478,\n      \"deal_uuid\": \"cedeb6a0-682d-3923-206b-51c415a34d65\",\n      \"deal_value\": 7457.964038363365,\n      \"kind\": \"string\",\n      \"owed\": 4053.9151189584923,\n      \"path_name\": \"string\",\n      \"plan_name\": \"string\",\n      \"target_user_email\": \"string\",\n      \"target_user_name\": \"string\",\n      \"value\": 3373.0414719001956,\n      \"updated_ts\": \"string\"\n    },\n    {\n      \"deal_date\": \"1951-03-24\",\n      \"deal_id\": 6492,\n      \"deal_integration_id\": \"string\",\n      \"deal_integration_source\": \"string\",\n      \"deal_name\": \"string\",\n      \"deal_term_start_date\": \"1948-11-28\",\n      \"deal_term_end_date\": \"1975-08-07\",\n      \"deal_term_duration\": 4025.3403070938743,\n      \"deal_uuid\": \"5e5ec030-f3d9-b91e-6aca-b3ddc3fc83f4\",\n      \"deal_value\": 9646.462868807213,\n      \"kind\": \"string\",\n      \"owed\": 5557.811781223546,\n      \"path_name\": \"strin\",\n      \"plan_name\": \"string\",\n      \"target_user_email\": \"string\",\n      \"target_user_name\": \"string\",\n      \"value\": 4953.268056429326,\n      \"updated_ts\": \"string\"\n    }\n  ],\n  \"next\": \"https://JEN.rtgbNoOeaEMfG1UwWJX.\",\n  \"previous\": \"https://SlPNixgfsITzBavMkXDfBEsOzdcwDM.fdxmoD4VNhjpEiokeO0WaoOHk6\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.quotapath.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f457e6c4-8889-442e-b4f5-a5a0249f4db7",
+    "name": "QuotaPath data payout API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Documentation for the QuotaPath API",
+      "type": "text/plain"
+    }
+  }
+}

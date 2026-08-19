@@ -1,6 +1,7 @@
-generated: '2026-07-20'
-method: searched
-source: live probes of api.quotapath.com and www.quotapath.com
+generated: '2026-08-14'
+method: probed
+source: live probes of api.quotapath.com, www.quotapath.com and app.quotapath.com
+checked: '2026-08-14'
 hosts:
 - host: https://api.quotapath.com
   documents:
@@ -14,12 +15,54 @@ hosts:
     status: 404
   - path: /.well-known/ai-plugin.json
     status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
 - host: https://www.quotapath.com
   documents:
   - path: /.well-known/security.txt
     status: 404
   - path: /.well-known/ai-plugin.json
     status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /security.txt
+    status: 404
+- host: https://app.quotapath.com
+  documents:
+  - path: /.well-known/agent-card.json
+    status: 404
+soft_200_watch:
+  note: >-
+    api.quotapath.com and app.quotapath.com serve an 82KB HTML SPA shell with
+    HTTP 200 for several unmatched paths (/openapi.json, /swagger.json, /redoc,
+    /graphql, /mcp, /llms.txt) while returning a genuine 404 for /.well-known/*.
+    None of those 200s is a document — every one is the same application shell.
+    Recorded so a later pass does not mistake them for served surfaces.
+  soft_200_paths:
+  - url: https://api.quotapath.com/openapi.json
+    status: 200
+    content_type: text/html; charset=utf-8
+  - url: https://api.quotapath.com/swagger.json
+    status: 200
+    content_type: text/html; charset=utf-8
+  - url: https://api.quotapath.com/graphql
+    status: 200
+    content_type: text/html; charset=utf-8
+  - url: https://api.quotapath.com/mcp
+    status: 200
+    content_type: text/html; charset=utf-8
+  - url: https://mcp.quotapath.com/
+    status: 200
+    content_type: text/html; charset=utf-8
+  - url: https://status.quotapath.com/
+    status: 200
+    content_type: text/html; charset=utf-8
 notes: >-
-  No /.well-known/ discovery documents are published on either host. Recorded
-  for auditability; no WellKnown pointer wired since nothing was found.
+  No /.well-known/ discovery documents are published on any QuotaPath host.
+  Recorded for auditability; NO WellKnown, SecurityTxt or AgentCard pointer is
+  wired in apis.yml, because nothing was found. This file documents an absence,
+  not a presence.

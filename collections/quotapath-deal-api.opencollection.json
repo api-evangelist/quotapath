@@ -1,0 +1,161 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "QuotaPath data deal API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "deal",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "deal_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.quotapath.com/v1/deal/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              }
+            ]
+          },
+          "docs": "List filtered deals or create deal with payload. No query params will list all\ndeals. Supported query params are 'id', 'integration_id', 'path_id', and 'user_email'."
+        },
+        {
+          "info": {
+            "name": "deal_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.quotapath.com/v1/deal/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List filtered deals or create deal with payload. No query params will list all\ndeals. Supported query params are 'id', 'integration_id', 'path_id', and 'user_email'."
+        },
+        {
+          "info": {
+            "name": "deal_bulk_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.quotapath.com/v1/deal/bulk/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Bulk update or create deals."
+        },
+        {
+          "info": {
+            "name": "deal",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.quotapath.com/v1/deal/:uuid/",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "View for retrieve, update, delete based on deal uuid"
+        },
+        {
+          "info": {
+            "name": "deal_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.quotapath.com/v1/deal/:uuid/",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "View for retrieve, update, delete based on deal uuid"
+        },
+        {
+          "info": {
+            "name": "deal_partial_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.quotapath.com/v1/deal/:uuid/",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "View for retrieve, update, delete based on deal uuid"
+        },
+        {
+          "info": {
+            "name": "deal_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.quotapath.com/v1/deal/:uuid/",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "View for retrieve, update, delete based on deal uuid"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

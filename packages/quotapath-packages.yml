@@ -1,0 +1,70 @@
+generated: '2026-08-14'
+method: searched
+source: >-
+  Registry searches of npm (registry.npmjs.org), PyPI, RubyGems, Packagist,
+  crates.io, plus the QuotaPath GitHub organization (github.com/quotapath) and
+  the API documentation at api.quotapath.com/docs/ and
+  help.quotapath.com/en/articles/8097859-api-documentation
+summary:
+  api_client_packages: 0
+  first_party_packages: 1
+  official_sdks: 0
+  notes: >-
+    QuotaPath publishes NO first-party client library for its REST API in any
+    package registry. The API documentation tells customers to "write API calls"
+    directly and states plainly that using the API "requires resources from your
+    development team" — there is no SDK to install. The one package QuotaPath
+    does publish to npm is an internal front-end testing utility, not an API
+    client, so no `SDKs` pointer is wired in apis.yml.
+registries_searched:
+- registry: npm
+  query: quotapath
+  results: 1
+  match: orphic-cypress (first-party, not an API client)
+- registry: pypi
+  query: quotapath
+  results: 0
+  note: pypi.org/pypi/quotapath/json returned HTTP 404
+- registry: rubygems
+  query: quotapath
+  results: 0
+- registry: packagist
+  query: quotapath
+  results: 0
+- registry: crates.io
+  query: quotapath
+  results: 0
+- registry: maven-central
+  query: quotapath
+  results: 0
+- registry: nuget
+  query: quotapath
+  results: 0
+- registry: pkg.go.dev
+  query: quotapath
+  results: 0
+packages:
+- name: orphic-cypress
+  registry: npm
+  url: https://www.npmjs.com/package/orphic-cypress
+  repository: https://github.com/quotapath/orphic-cypress
+  language: TypeScript
+  official: true
+  api_client: false
+  kind: dev-tool
+  version: 0.0.3
+  published: '2022-12-17'
+  description: >-
+    Set of utilities and typescript transformers to cover storybook stories with
+    cypress component tests.
+  note: >-
+    Published by the QuotaPath GitHub organization, so first-party, but it is an
+    internal front-end test-tooling package with no relationship to the QuotaPath
+    REST API. Last release 0.0.3 on 2022-12-17 — unmaintained for over three
+    years. Recorded for completeness; deliberately NOT counted as an SDK.
+gaps:
+- >-
+  No official client library exists for any language. Consumers of
+  https://api.quotapath.com/v1 hand-roll HTTP requests against the OpenAPI 3.0
+  definition. A generated client from openapi/_original/quotapath-openapi-original.json
+  would cover all 18 operations.

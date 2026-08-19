@@ -1,0 +1,748 @@
+{
+  "item": [
+    {
+      "id": "1020b30b-9981-4981-9023-b22c07d4084c",
+      "name": "deal",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d5e7d869-aef8-495c-ae0e-9e4b8cc2b509",
+          "name": "deal list",
+          "request": {
+            "name": "deal list",
+            "description": {
+              "content": "List filtered deals or create deal with payload. No query params will list all\ndeals. Supported query params are 'id', 'integration_id', 'path_id', and 'user_email'.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deal",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The initial index from which to return the results."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "44b071d5-dd13-4a58-ad1d-579b9fbac429",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deal",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 2900,\n  \"results\": [\n    {\n      \"deal_values\": [\n        {\n          \"value\": 2996.3676954542807,\n          \"path_id\": \"e09ba62f-3949-28f4-c627-8fb9ebdd3ad6\"\n        }\n      ],\n      \"name\": \"string\",\n      \"user_email\": \"pYjQ@HbDvCDKTDPCCBbbwuE.ckpr\",\n      \"admin_locked\": false,\n      \"created_date\": \"1958-03-20T04:04:33.935Z\",\n      \"date\": \"2021-07-28\",\n      \"id\": \"6ca1aa8f-5f06-979a-9c52-1aa02f749bd8\",\n      \"integration_id\": \"string\",\n      \"integration_source\": \"api\",\n      \"state\": \"closed\",\n      \"updated_date\": \"1993-09-22T00:32:01.607Z\",\n      \"metadata\": {\n        \"date_field_1\": \"2018-03-02\",\n        \"date_field_2\": \"1955-09-20\",\n        \"number_field_1\": \"string\"\n      }\n    },\n    {\n      \"deal_values\": [\n        {\n          \"value\": 66.20114493028018,\n          \"path_id\": \"cf16be1f-9d6e-0ddc-e543-8d14c4e5236b\"\n        }\n      ],\n      \"name\": \"string\",\n      \"user_email\": \"JmEUAEXyZWQaP3@lNZUc.mq\",\n      \"admin_locked\": false,\n      \"created_date\": \"1958-05-21T09:16:07.192Z\",\n      \"date\": \"2015-08-04\",\n      \"id\": \"ebac366f-0da1-f950-7199-225508d75b05\",\n      \"integration_id\": \"string\",\n      \"integration_source\": \"api\",\n      \"state\": \"lost\",\n      \"updated_date\": \"2009-01-02T04:47:31.464Z\",\n      \"metadata\": {\n        \"date_field_1\": \"2005-01-18\",\n        \"date_field_2\": \"2009-04-15\",\n        \"number_field_1\": \"string\"\n      }\n    }\n  ],\n  \"next\": \"https://WlVGNfEo.ybodFJLYGNPj4NFkQnk1\",\n  \"previous\": \"https://xgA.fyfcXEP1dzGPSOuxh7ER12xWmUFSU.4VMrPojPfJLwMY19ZzQuT\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9017218a-d246-4722-a9af-35545ed5878a",
+          "name": "deal create",
+          "request": {
+            "name": "deal create",
+            "description": {
+              "content": "List filtered deals or create deal with payload. No query params will list all\ndeals. Supported query params are 'id', 'integration_id', 'path_id', and 'user_email'.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deal",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"deal_values\": [\n    {\n      \"value\": \"<number>\",\n      \"path_id\": \"<uuid>\"\n    }\n  ],\n  \"name\": \"<string>\",\n  \"user_email\": \"<email>\",\n  \"admin_locked\": \"<boolean>\",\n  \"date\": \"<date>\",\n  \"integration_id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"metadata\": {\n    \"date_field_1\": \"<date>\",\n    \"date_field_2\": \"<date>\",\n    \"number_field_1\": \"<decimal>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "685deeaf-a1d4-441e-9c43-cbcbcbfa7a29",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deal",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"deal_values\": [\n    {\n      \"value\": \"<number>\",\n      \"path_id\": \"<uuid>\"\n    }\n  ],\n  \"name\": \"<string>\",\n  \"user_email\": \"<email>\",\n  \"admin_locked\": \"<boolean>\",\n  \"created_date\": \"1994-09-24T21:14:16.655Z\",\n  \"date\": \"<date>\",\n  \"id\": \"2fb39c65-7542-fc4c-e93e-afdfc047ef88\",\n  \"integration_id\": \"<string>\",\n  \"integration_source\": \"bulk\",\n  \"state\": \"<string>\",\n  \"updated_date\": \"1956-12-05T16:33:12.671Z\",\n  \"metadata\": {\n    \"date_field_1\": \"<date>\",\n    \"date_field_2\": \"<date>\",\n    \"number_field_1\": \"<decimal>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ccd38d7c-0fdb-48c5-bcec-de5f4d4b4099",
+          "name": "deal bulk create",
+          "request": {
+            "name": "deal bulk create",
+            "description": {
+              "content": "Bulk update or create deals.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deal",
+                "bulk",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"deals\": [\n    {\n      \"deal_values\": [\n        {\n          \"value\": \"<number>\",\n          \"path_id\": \"<uuid>\"\n        }\n      ],\n      \"name\": \"<string>\",\n      \"user_email\": \"<email>\",\n      \"admin_locked\": \"<boolean>\",\n      \"date\": \"<date>\",\n      \"integration_id\": \"<string>\",\n      \"state\": \"<string>\",\n      \"metadata\": {\n        \"date_field_1\": \"<date>\",\n        \"date_field_2\": \"<date>\",\n        \"number_field_1\": \"<decimal>\"\n      }\n    },\n    {\n      \"deal_values\": [\n        {\n          \"value\": \"<number>\",\n          \"path_id\": \"<uuid>\"\n        }\n      ],\n      \"name\": \"<string>\",\n      \"user_email\": \"<email>\",\n      \"admin_locked\": \"<boolean>\",\n      \"date\": \"<date>\",\n      \"integration_id\": \"<string>\",\n      \"state\": \"<string>\",\n      \"metadata\": {\n        \"date_field_1\": \"<date>\",\n        \"date_field_2\": \"<date>\",\n        \"number_field_1\": \"<decimal>\"\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f6b87580-97fa-4013-8448-17bdb6f0777a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deal",
+                    "bulk",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"deals\": [\n    {\n      \"deal_values\": [\n        {\n          \"value\": \"<number>\",\n          \"path_id\": \"<uuid>\"\n        }\n      ],\n      \"name\": \"<string>\",\n      \"user_email\": \"<email>\",\n      \"admin_locked\": \"<boolean>\",\n      \"date\": \"<date>\",\n      \"integration_id\": \"<string>\",\n      \"state\": \"<string>\",\n      \"metadata\": {\n        \"date_field_1\": \"<date>\",\n        \"date_field_2\": \"<date>\",\n        \"number_field_1\": \"<decimal>\"\n      }\n    },\n    {\n      \"deal_values\": [\n        {\n          \"value\": \"<number>\",\n          \"path_id\": \"<uuid>\"\n        }\n      ],\n      \"name\": \"<string>\",\n      \"user_email\": \"<email>\",\n      \"admin_locked\": \"<boolean>\",\n      \"date\": \"<date>\",\n      \"integration_id\": \"<string>\",\n      \"state\": \"<string>\",\n      \"metadata\": {\n        \"date_field_1\": \"<date>\",\n        \"date_field_2\": \"<date>\",\n        \"number_field_1\": \"<decimal>\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "51485d20-bdae-4062-b73d-2a9656f5a6da",
+          "name": "deal",
+          "request": {
+            "name": "deal",
+            "description": {
+              "content": "View for retrieve, update, delete based on deal uuid",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deal",
+                ":uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d29cf837-b22e-4ea4-b9fb-ed31269a8cf3",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deal",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"deal_values\": [\n    {\n      \"value\": \"<number>\",\n      \"path_id\": \"<uuid>\"\n    }\n  ],\n  \"name\": \"<string>\",\n  \"user_email\": \"<email>\",\n  \"admin_locked\": \"<boolean>\",\n  \"created_date\": \"1994-09-24T21:14:16.655Z\",\n  \"date\": \"<date>\",\n  \"id\": \"2fb39c65-7542-fc4c-e93e-afdfc047ef88\",\n  \"integration_id\": \"<string>\",\n  \"integration_source\": \"bulk\",\n  \"state\": \"<string>\",\n  \"updated_date\": \"1956-12-05T16:33:12.671Z\",\n  \"metadata\": {\n    \"date_field_1\": \"<date>\",\n    \"date_field_2\": \"<date>\",\n    \"number_field_1\": \"<decimal>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5a63b8dc-3544-4574-bc5d-c5eefcafc1f7",
+          "name": "deal update",
+          "request": {
+            "name": "deal update",
+            "description": {
+              "content": "View for retrieve, update, delete based on deal uuid",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deal",
+                ":uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"deal_values\": [\n    {\n      \"value\": \"<number>\",\n      \"path_id\": \"<uuid>\"\n    }\n  ],\n  \"name\": \"<string>\",\n  \"user_email\": \"<email>\",\n  \"admin_locked\": \"<boolean>\",\n  \"date\": \"<date>\",\n  \"integration_id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"metadata\": {\n    \"date_field_1\": \"<date>\",\n    \"date_field_2\": \"<date>\",\n    \"number_field_1\": \"<decimal>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0aca2b8e-9bcc-41bf-8687-122fab83b3f4",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deal",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"deal_values\": [\n    {\n      \"value\": \"<number>\",\n      \"path_id\": \"<uuid>\"\n    }\n  ],\n  \"name\": \"<string>\",\n  \"user_email\": \"<email>\",\n  \"admin_locked\": \"<boolean>\",\n  \"created_date\": \"1994-09-24T21:14:16.655Z\",\n  \"date\": \"<date>\",\n  \"id\": \"2fb39c65-7542-fc4c-e93e-afdfc047ef88\",\n  \"integration_id\": \"<string>\",\n  \"integration_source\": \"bulk\",\n  \"state\": \"<string>\",\n  \"updated_date\": \"1956-12-05T16:33:12.671Z\",\n  \"metadata\": {\n    \"date_field_1\": \"<date>\",\n    \"date_field_2\": \"<date>\",\n    \"number_field_1\": \"<decimal>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8b598071-f599-49cb-b87d-7207055b8378",
+          "name": "deal partial update",
+          "request": {
+            "name": "deal partial update",
+            "description": {
+              "content": "View for retrieve, update, delete based on deal uuid",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deal",
+                ":uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"deal_values\": [\n    {\n      \"value\": \"<number>\",\n      \"path_id\": \"<uuid>\"\n    }\n  ],\n  \"name\": \"<string>\",\n  \"user_email\": \"<email>\",\n  \"admin_locked\": \"<boolean>\",\n  \"date\": \"<date>\",\n  \"integration_id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"metadata\": {\n    \"date_field_1\": \"<date>\",\n    \"date_field_2\": \"<date>\",\n    \"number_field_1\": \"<decimal>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0fc3d90a-4f46-4a77-b873-00623ceba710",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deal",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"deal_values\": [\n    {\n      \"value\": \"<number>\",\n      \"path_id\": \"<uuid>\"\n    }\n  ],\n  \"name\": \"<string>\",\n  \"user_email\": \"<email>\",\n  \"admin_locked\": \"<boolean>\",\n  \"created_date\": \"1994-09-24T21:14:16.655Z\",\n  \"date\": \"<date>\",\n  \"id\": \"2fb39c65-7542-fc4c-e93e-afdfc047ef88\",\n  \"integration_id\": \"<string>\",\n  \"integration_source\": \"bulk\",\n  \"state\": \"<string>\",\n  \"updated_date\": \"1956-12-05T16:33:12.671Z\",\n  \"metadata\": {\n    \"date_field_1\": \"<date>\",\n    \"date_field_2\": \"<date>\",\n    \"number_field_1\": \"<decimal>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e8a21b98-192e-44c2-a44a-aa328b49cdee",
+          "name": "deal delete",
+          "request": {
+            "name": "deal delete",
+            "description": {
+              "content": "View for retrieve, update, delete based on deal uuid",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deal",
+                ":uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "27af6c45-80ed-4ed4-852b-50951f03c6ca",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deal",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.quotapath.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a0bd1ab1-aa3a-4409-9c47-3967be0dd231",
+    "name": "QuotaPath data deal API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Documentation for the QuotaPath API",
+      "type": "text/plain"
+    }
+  }
+}

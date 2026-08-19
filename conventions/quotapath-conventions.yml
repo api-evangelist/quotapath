@@ -1,17 +1,31 @@
-generated: '2026-07-20'
-method: derived
-source: openapi/quotapath-openapi-original.json
+generated: '2026-08-14'
+method: searched
+source: >-
+  openapi/_original/quotapath-openapi-original.json, the API reference at
+  https://api.quotapath.com/docs/, the help center article
+  https://help.quotapath.com/en/articles/8097859-api-documentation, and live
+  unauthenticated probes of https://api.quotapath.com/v1/user/ (2026-08-14)
 summary: >-
-  Cross-cutting request/response semantics for the QuotaPath REST API, derived
-  from the OpenAPI definition and the developer docs at api.quotapath.com/docs/.
+  Cross-cutting request/response semantics for the QuotaPath REST API. The API is
+  a Django REST Framework application on Google App Engine Flex behind nginx: flat
+  token auth, limit/offset pagination, a bare {"detail": ...} error envelope, and
+  no idempotency, rate-limit or tracing conventions of any kind.
 authentication:
   style: api-key
   location: header
   header: Authorization
-  format: "Token <api-key>"
-  notes: >-
-    API access is a Premium-tier feature. Prefix the QuotaPath-generated API key
-    with 'Token ' in the Authorization header. See authentication/quotapath-authentication.yml.
+  format: 'Token <api-key>'
+  scheme_name: token_auth
+  key_issuance: In-app under Settings > API Tokens; the value is displayed once only.
+  tier_gate: >-
+    API access is a Premium-tier feature. The help center states an API key
+    requires a paid subscription plan.
+  docs: https://help.quotapath.com/en/articles/6634277-how-to-generate-an-api-token
+  probed:
+    unauthenticated_status: 401
+    www_authenticate: Token
+    body: '{"detail": "Authentication credentials were not provided."}'
+  notes: See authentication/quotapath-authentication.yml.
 pagination:
   style: limit-offset
   params:
@@ -25,30 +39,82 @@ pagination:
   notes: >-
     List endpoints return a paginated envelope { count, next, previous, results }.
     'next'/'previous' are absolute URIs (nullable). Django REST Framework
-    LimitOffsetPagination.
+    LimitOffsetPagination. No cursor pagination and no default page size is
+    documented in the spec.
 filtering:
   notes: >-
     /deal/ supports query params id, integration_id, path_id, user_email.
-    /payout/ and /payout/resolved/ support an updated_since incremental filter.
+    /payout/ and /payout/resolved/ support an updated_since incremental filter,
+    which is the only change-data-capture affordance in the API.
+field_expansion:
+  supported: false
+  notes: No expand / fields / sparse-fieldset parameters are documented.
+metadata:
+  supported: true
+  notes: >-
+    Deals carry a metadata object (ExternalDealMetadata) for caller-defined
+    key/values, and integration_id / integration_source carry the external
+    system's identity for upsert matching.
+request_id_tracing:
+  supported: false
+  correlation_header: null
+  notes: >-
+    No request-id or correlation header is documented or returned to callers.
+    Responses do carry x-cloud-trace-context (a Google Cloud infrastructure
+    header) and x-appengine-flex-applatency, but neither is a documented,
+    supportable tracing contract — do not build on them.
 idempotency:
   supported: false
+  header: null
   notes: >-
-    No idempotency-key header or parameter is documented in the OpenAPI or docs.
-    Bulk create endpoints (/deal/bulk/, /data/bulk-import/) use an external
-    integration_id / data_id_field for upsert-style de-duplication rather than a
-    request idempotency key.
+    No Idempotency-Key header or parameter exists in the OpenAPI or the docs.
+    Bulk endpoints (/deal/bulk/, /data/bulk-import/) de-duplicate on an external
+    integration_id / data_id_field, which is upsert-by-natural-key rather than
+    request idempotency: a retried POST /deal/ with no integration_id will create
+    a duplicate deal. Agents must guard retries themselves.
 versioning:
   scheme: uri-path
   current: v1
   base_url: https://api.quotapath.com/v1
+  breaking_change_policy: null
+  notes: No versioning or deprecation policy is published. See lifecycle/quotapath-lifecycle.yml.
 error_envelope:
+  format: bespoke-json
+  rfc9457: false
+  content_type: application/json
+  shape: '{"detail": "<message>"}'
+  probed: true
   notes: >-
-    The OpenAPI documents only 2xx responses (200/201/204). Error shapes are not
-    formally specified; the API is Django REST Framework, which conventionally
-    returns JSON error bodies with a 'detail' field on 4xx/5xx.
+    Confirmed live on 2026-08-14: 401s return application/json with a single
+    `detail` string and WWW-Authenticate: Token. The OpenAPI declares only
+    200/201/204 — zero error responses — so the error contract is undocumented.
+    A 404 under /v1 returns the HTML SPA shell, not JSON, so agents must branch on
+    content-type before parsing. See errors/quotapath-problem-types.yml.
 rate_limiting:
-  notes: No rate-limit headers or documented quotas were found in the OpenAPI or docs.
+  documented: false
+  headers: []
+  notes: >-
+    No rate limits are published and no RateLimit-*, X-RateLimit-* or Retry-After
+    header appears on live responses. The help center addresses volume only
+    commercially ("QuotaPath does not charge for API calls"). See
+    rate-limits/quotapath-rate-limits.yml.
+cors:
+  access_control_allow_origin: https://www.quotapath.com
+  notes: >-
+    The API pins Access-Control-Allow-Origin to https://www.quotapath.com, so it
+    is not callable from arbitrary browser origins — server-to-server only.
+transport_security:
+  hsts: true
+  hsts_max_age: 31536000
+  include_subdomains: true
+  notes: >-
+    api.quotapath.com sends Strict-Transport-Security: max-age=31536000;
+    includeSubDomains, plus x-content-type-options, referrer-policy,
+    cross-origin-opener-policy and permissions-policy.
 cross_links:
   authentication: authentication/quotapath-authentication.yml
   data_model: data-model/quotapath-data-model.yml
   lifecycle: lifecycle/quotapath-lifecycle.yml
+  errors: errors/quotapath-problem-types.yml
+  rate_limits: rate-limits/quotapath-rate-limits.yml
+  plans: plans/quotapath-plans-pricing.yml

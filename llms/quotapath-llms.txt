@@ -1,31 +1,271 @@
-# QuotaPath
+# QuotaPath Help Center
 
-> QuotaPath is a sales commission tracking and compensation management platform. It sits as a system of record between a company's CRM, finance stack, and payroll — pulling deals from HubSpot and Salesforce, applying commission plans, quotas, and ASC 606 ledger logic, and syncing payouts to accounting and HRIS systems. The QuotaPath REST API (Premium tier) pushes deals, reads payouts, and manages quota assignments over https://api.quotapath.com/v1 using token API-key auth.
+> Answers, guides, and help ⎯ right here.
 
-## API
-- [QuotaPath API docs](https://api.quotapath.com/docs/): Redoc reference for the QuotaPath REST API (OpenAPI 3.0, base https://api.quotapath.com/v1)
-- [OpenAPI definition](openapi/quotapath-openapi-original.json): 18 operations across deals, payouts, quotas, plans, teams, users
+## Getting Started
 
-## Key operations
-- Deals: deal_list, deal_create, deal_bulk_create, deal (get), deal_update, deal_partial_update, deal_delete
-- Bulk import: data_bulk-import_create
-- Quotas: path_quota_assignments_list, path_quota_assignments_create, path_quota_values_list, path_quota_values_create
-- Payouts: payout_list, payout_resolved_list, payout_unresolved_list
-- Org: plan_list, team_list, user_list
+- [Logging in to QuotaPath](https://help.quotapath.com/en/articles/15324958-logging-in-to-quotapath.md): Learn how to login to your QuotaPath workspace
+- [QuotaPath Overview](https://help.quotapath.com/en/articles/7038781-quotapath-overview.md): A guide to learning about QuotaPath and setting up your workspace.
+- [How to Run a Commission Payout Cycle](https://help.quotapath.com/en/articles/7038831-how-to-run-a-commission-payout-cycle.md): Learn how to review and approve earnings, schedule payouts, and export payout data to complete your commission cycle.
+- [How to Validate and Reconcile Commission Payouts](https://help.quotapath.com/en/articles/7038848-how-to-validate-and-reconcile-commission-payouts.md): Ensure accuracy and alignment with your business goals and financial plan with a few easy steps.
+- [How to Build a Plan](https://help.quotapath.com/en/articles/7002344-how-to-build-a-plan.md): Learn how Admins can build a Plan from Scratch
+- [How to Connect to a Data Source](https://help.quotapath.com/en/articles/7002340-how-to-connect-to-a-data-source.md): Learn how to connect your data source to QuotaPath
+- [How to Sync Components to HubSpot](https://help.quotapath.com/en/articles/7002355-how-to-sync-components-to-hubspot.md): Learn how Admins can sync Components to data in HubSpot
+- [How to Sync Components to Salesforce](https://help.quotapath.com/en/articles/7002351-how-to-sync-components-to-salesforce.md): Learn how Admins can sync Components to data in Salesforce
+- [Sales Compensation 101](https://help.quotapath.com/en/articles/7038898-sales-compensation-101.md): New to sales compensation? This article will help you understand the basics of variable compensation.
+- [FAQs](https://help.quotapath.com/en/articles/2792442-faqs.md): Frequently asked questions
+- [Glossary](https://help.quotapath.com/en/articles/2792447-glossary.md): QuotaPath terms and definitions
 
-## Authentication
-- API key in the Authorization header as 'Token <api-key>'. API access is a Premium-tier feature.
+## Building New Plans
 
-## Conventions
-- [Conventions](conventions/quotapath-conventions.yml): limit/offset pagination with { count, next, previous, results }; no idempotency keys
-- [Authentication](authentication/quotapath-authentication.yml)
-- [Data model](data-model/quotapath-data-model.yml)
+- [Building New Plans Guide](https://help.quotapath.com/en/articles/13162825-building-new-plans-guide.md): Review our step-by-step guide for building & launching new plans
+- [Displaying Pipeline deals and enabling forecasting](https://help.quotapath.com/en/articles/15513314-displaying-pipeline-deals-and-enabling-forecasting.md): Admins: Motivate your reps by showing their pipeline in QuotaPath
+- [How to create a temporary component](https://help.quotapath.com/en/articles/15984596-how-to-create-a-temporary-component.md): How to apply a one-time date range to Quotas and Earnings components
 
-## Docs
-- [Developer docs](https://api.quotapath.com/docs/)
-- [Integrations hub](https://www.quotapath.com/integrations-hub/)
-- [Help center](https://help.quotapath.com/)
-- [Pricing](https://www.quotapath.com/pricing/)
+## Launching QuotaPath
 
-## Security & compliance
-- SOC 2 and ISO 27001 (https://trust.quotapath.com/)
+- [Best practices to increase team adoption and usage](https://help.quotapath.com/en/articles/7038893-best-practices-to-increase-team-adoption-and-usage.md): Learn how to use QuotaPath as a tool to help manage and motivate your revenue teams.
+- [How to Request Plan Verification](https://help.quotapath.com/en/articles/6688154-how-to-request-plan-verification.md): Learn how Admins can request verification of Plans & upload Plan documents
+- [User Guide](https://help.quotapath.com/en/articles/11552312-user-guide.md): Access our user guide for training reps on QuotaPath
+- [How to view & forecast your Earnings](https://help.quotapath.com/en/articles/7838832-how-to-view-forecast-your-earnings.md): Learn how to view & forecast your Earnings in QuotaPath
+- [How to view & forecast your Attainment](https://help.quotapath.com/en/articles/7838910-how-to-view-forecast-your-attainment.md): Learn how to view & forecast your Quota Attainment in QuotaPath
+- [How to Flag Your Deals](https://help.quotapath.com/en/articles/7838985-how-to-flag-your-deals.md): Learn how you can flag Deals to your Managers or Admins
+- [How to view your Approved Deals & Payouts](https://help.quotapath.com/en/articles/7839032-how-to-view-your-approved-deals-payouts.md): Learn how you can view your Approved Deals & Scheduled Payouts
+- [How to View Your Plan](https://help.quotapath.com/en/articles/7839111-how-to-view-your-plan.md): Learn where to find your Plan in QuotaPath & view Plan details & verification
+
+## AI-Powered Plan Builder
+
+- [How to add a Quota Component](https://help.quotapath.com/en/articles/10471132-how-to-add-a-quota-component.md): Learn how Admins can add a Quota Component to a Plan
+- [How to add a Single Rate Commission Component](https://help.quotapath.com/en/articles/10471493-how-to-add-a-single-rate-commission-component.md): Learn how Admins can add an Single Rate Commission Component to a Plan
+- [How to add a Multi-Rate Commission Component](https://help.quotapath.com/en/articles/10471143-how-to-add-a-multi-rate-commission-component.md): Learn how Admins can add an Multi-Rate Commission Component to a Plan
+- [How to add a Single Rate Bonus Component](https://help.quotapath.com/en/articles/10471538-how-to-add-a-single-rate-bonus-component.md): Learn how Admins can add an Single Rate Commission Component to a Plan
+- [How to add a Multi-Rate Bonus Component](https://help.quotapath.com/en/articles/10471568-how-to-add-a-multi-rate-bonus-component.md): Learn how Admins can add a Multi-Rate Bonus Component to a Plan
+- [How to use a Milestone Bonus Component](https://help.quotapath.com/en/articles/10471147-how-to-use-a-milestone-bonus-component.md): Milestone Bonuses - when to use and how to configure
+- [How to use the AI-Powered Plan Builder](https://help.quotapath.com/en/articles/10471954-how-to-use-the-ai-powered-plan-builder.md): Learn how Admins can use the AI-Powered Plan Builder to build a Plan
+- [Plans Overview](https://help.quotapath.com/en/articles/10443767-plans-overview.md): Overview of the Plans page and the lifecycle of a comp plan
+- [Plan Details](https://help.quotapath.com/en/articles/10403100-plan-details.md): Learn how to view & edit plan details and track plan performance
+- [Creating & Publishing a Draft Plan](https://help.quotapath.com/en/articles/10443761-creating-publishing-a-draft-plan.md): Learn how Admins can create and publish a new plan
+- [Adding a Component](https://help.quotapath.com/en/articles/10443565-adding-a-component.md): How to add a component to your Plan, and start seeing your earnings in QuotaPath. Components can represent a quota, commission, a one-time spiff, a bonus, and more
+- [Editing a Component](https://help.quotapath.com/en/articles/10443614-editing-a-component.md): How to make a change to your quota period or earnings rule by editing a component in QuotaPath
+- [Workspace Components](https://help.quotapath.com/en/articles/10776814-workspace-components.md): How to Use Workspace Components to Build Plans Faster
+- [Assign Individual Quotas](https://help.quotapath.com/en/articles/10443622-assign-individual-quotas.md): How to assign individual quotas via Quota Tables in QuotaPath if members are assigned the same plan but have different quotas
+- [Assign Individual Rates](https://help.quotapath.com/en/articles/10443629-assign-individual-rates.md): How to assign individual rates via Rate Tables in QuotaPath if members are assigned the same plan but with different rates
+- [Request Plan Verification](https://help.quotapath.com/en/articles/10443634-request-plan-verification.md): How members can verify and sign off on their comp plan in QuotaPath
+- [Edit Plan Effective Dates](https://help.quotapath.com/en/articles/10443644-edit-plan-effective-dates.md): How to edit a plan assignee's effective dates in QuotaPath for members who have changed plans or left the company
+- [Edit Plan Name](https://help.quotapath.com/en/articles/10443658-edit-plan-name.md): How to edit a Plan name in QuotaPath if you need to re-name your plan
+- [Bulk Updates to Plans](https://help.quotapath.com/en/articles/10443663-bulk-updates-to-plans.md): Learn how to make bulk updates to plans - including assigning team members and archiving plans
+- [Deleting a Component](https://help.quotapath.com/en/articles/10443668-deleting-a-component.md): How to delete Components from a Plan in QuotaPath
+- [Deleting a Plan](https://help.quotapath.com/en/articles/10443675-deleting-a-plan.md): How to delete a Plan in QuotaPath
+- [How to Un-assign a Plan](https://help.quotapath.com/en/articles/10443713-how-to-un-assign-a-plan.md): How to un-assign a member from a plan in QuotaPath
+- [Archive a Plan](https://help.quotapath.com/en/articles/10443725-archive-a-plan.md): How to archive plans that are no longer active in QuotaPath
+- [Components with different Earnings & Attainment fields](https://help.quotapath.com/en/articles/10443731-components-with-different-earnings-attainment-fields.md): Learn how to add components using different fields to measure attainment & calculate earnings
+- [Components with Attainment Multipliers](https://help.quotapath.com/en/articles/10443734-components-with-attainment-multipliers.md): Learn how to add Components with multipliers to accelerate quota attainment
+- [Automatic Commission Rates](https://help.quotapath.com/en/articles/10443741-automatic-commission-rates.md): Learn how Admins can automatically calculate commission rates
+- [Plan Modeling](https://help.quotapath.com/en/articles/10443745-plan-modeling.md): Learn how Admins can model performance for comp plans
+- [Roll-Up Components](https://help.quotapath.com/en/articles/10443751-roll-up-components.md): Learn how to create plan components with roll-ups
+- [Locked Plan Data](https://help.quotapath.com/en/articles/10443757-locked-plan-data.md): Learn how to lock plan data to pause syncing & freeze commission data
+- [Adding and viewing a Component Folder](https://help.quotapath.com/en/articles/11180827-adding-and-viewing-a-component-folder.md)
+- [Negative Tiers](https://help.quotapath.com/en/articles/11932847-negative-tiers.md): Learn how to configure negative tiers in plan components
+- [Rate Formulas](https://help.quotapath.com/en/articles/12427488-rate-formulas.md): Learn how to configure earnings rate multiplier formulas in plan components
+- [How to Create Non-Recoverable Draws](https://help.quotapath.com/en/articles/15505239-how-to-create-non-recoverable-draws.md): You can now configure draws directly in QuotaPath's Plan Builder — no spreadsheets, dummy plans, or manual workarounds required.
+- [How to View Non-Recoverable Draws](https://help.quotapath.com/en/articles/15532965-how-to-view-non-recoverable-draws.md)
+
+## Integrations
+
+- [QuotaPath Integrations Overview](https://help.quotapath.com/en/articles/8124777-quotapath-integrations-overview.md): Learn about QuotaPath's data model and how to format your data
+- [Managing Integrations](https://help.quotapath.com/en/articles/8868500-managing-integrations.md): Learn how to view, customize and manage your integration data
+- [Integration Syncing Overview](https://help.quotapath.com/en/articles/11133636-integration-syncing-overview.md): Learn more about how QuotaPath syncs with your connected integrations
+- [How to Map a Component to your Data Source](https://help.quotapath.com/en/articles/6608062-how-to-map-a-component-to-your-data-source.md): Learn how Admins can map components to a connected integration data source
+- [Integrations 2.0](https://help.quotapath.com/en/articles/8495673-integrations-2-0.md): Learn about the 2.0 versions of our Salesforce, HubSpot and Close integrations
+- [View and Analyze Source Records](https://help.quotapath.com/en/articles/12843920-view-and-analyze-source-records.md): Learn how Admins inspect imported source data, analyze mappings, and review related QuotaPath deals.
+- [Integration Versions](https://help.quotapath.com/en/articles/13431053-integration-versions.md): Learn about QuotaPath's integration versions
+- [How to add new fields or properties to your data source integration](https://help.quotapath.com/en/articles/15180561-how-to-add-new-fields-or-properties-to-your-data-source-integration.md): Created new fields or properties or columns? Here's how to pull them into QuotaPath.
+- [BigQuery Integration Overview](https://help.quotapath.com/en/articles/8867835-bigquery-integration-overview.md): Learn how to connect BigQuery to QuotaPath
+- [Chargebee Integration Overview](https://help.quotapath.com/en/articles/8868844-chargebee-integration-overview.md): Learn how to connect Chargebee to QuotaPath
+- [Close Integration Overview](https://help.quotapath.com/en/articles/8908984-close-integration-overview.md): Learn how to connect Close to QuotaPath
+- [ConnectWise Integration Overview](https://help.quotapath.com/en/articles/10244930-connectwise-integration-overview.md): Learn how to connect ConnectWise to QuotaPath
+- [Copper Integration Overview](https://help.quotapath.com/en/articles/7885542-copper-integration-overview.md): How to connect Copper to QuotaPath
+- [Google Sheets Integration Overview](https://help.quotapath.com/en/articles/7885490-google-sheets-integration-overview.md): Learn how to connect Google Sheets to QuotaPath
+- [JobAdder Integration Overview](https://help.quotapath.com/en/articles/8868707-jobadder-integration-overview.md): Learn how to connect JobAdder to QuotaPath
+- [Keap Integration Overview](https://help.quotapath.com/en/articles/8871858-keap-integration-overview.md): Learn how to connect Keap to QuotaPath
+- [Leaflink Integration Overview](https://help.quotapath.com/en/articles/8871886-leaflink-integration-overview.md): Learn how to connect Leaflink to QuotaPath
+- [Looker Integration Overview](https://help.quotapath.com/en/articles/8868755-looker-integration-overview.md): Learn how to connect Looker to QuotaPath
+- [NetSuite Integration Overview](https://help.quotapath.com/en/articles/8729465-netsuite-integration-overview.md): Learn how to connect Netsuite to QuotaPath
+- [Maxio \(Chargify\) Integration Overview](https://help.quotapath.com/en/articles/8871448-maxio-chargify-integration-overview.md): Learn how to connect Maxio to QuotaPath
+- [Maxio \(SaaSOptics\) Integration Overview](https://help.quotapath.com/en/articles/8260535-maxio-saasoptics-integration-overview.md): Learn how to connect to Maxio to QuotaPath
+- [Microsoft Dynamics 365 Sales Integration Overview](https://help.quotapath.com/en/articles/9493754-microsoft-dynamics-365-sales-integration-overview.md): Learn how to connect Microsoft Dynamics 365 to QuotaPath
+- [Microsoft Excel Integration Overview](https://help.quotapath.com/en/articles/8871896-microsoft-excel-integration-overview.md): Learn how to connect a Microsoft Excel file to QuotaPath
+- [Pipedrive Integration Overview](https://help.quotapath.com/en/articles/7885531-pipedrive-integration-overview.md): Learn how to connect Pipedrive to QuotaPath
+- [Rippling Integration Overview](https://help.quotapath.com/en/articles/9859075-rippling-integration-overview.md): Learn more how to set-up & use QuotaPath's Rippling integration
+- [QuickBooks Integration Overview](https://help.quotapath.com/en/articles/7885549-quickbooks-integration-overview.md): Learn how to connect QuickBooks to QuotaPath
+- [SaaSOptics Expense Recognition Integration](https://help.quotapath.com/en/articles/6634334-saasoptics-expense-recognition-integration.md): Learn more about our integration with SaaSOptics to push earnings into Expense Recognition by SaaSOptics
+- [Sage Intacct Integration Overview](https://help.quotapath.com/en/articles/9616052-sage-intacct-integration-overview.md)
+- [Smartsheet Integration Overview](https://help.quotapath.com/en/articles/8871965-smartsheet-integration-overview.md): Learn how to connect Smartsheet to QuotaPath
+- [Snowflake Integration Overview](https://help.quotapath.com/en/articles/8868609-snowflake-integration-overview.md): Learn how to connect Snowflake to QuotaPath
+- [Stripe Integration Overview](https://help.quotapath.com/en/articles/7885556-stripe-integration-overview.md): Learn how to connect Stripe to QuotaPath
+- [Tableau Integration Overview](https://help.quotapath.com/en/articles/8868668-tableau-integration-overview.md): Learn how to connect Tableau to QuotaPath
+- [Xero Integration Overview](https://help.quotapath.com/en/articles/9493717-xero-integration-overview.md): Learn how to connect Xero to QuotaPath
+- [Zoho Integration Overview](https://help.quotapath.com/en/articles/7885523-zoho-integration-overview.md): Learn how to connect ZohoCRM to QuotaPath
+- [Salesforce Integration Overview](https://help.quotapath.com/en/articles/6633672-salesforce-integration-overview.md): Overview of QuotaPath's integration with Salesforce
+- [Salesforce App](https://help.quotapath.com/en/articles/8971343-salesforce-app.md): Learn how to install QuotaPath's Salesforce App
+- [QuotaPath setup for Salesforce Currency Conversion](https://help.quotapath.com/en/articles/7833773-quotapath-setup-for-salesforce-currency-conversion.md): Learn how to setup QuotaPath when converting multiple revenue currencies in Salesforce
+- [Using Salesforce Opportunity Splits](https://help.quotapath.com/en/articles/15016462-using-salesforce-opportunity-splits.md): How to map to and incorporate Opportunity Split object data in QuotaPath
+- [HubSpot Integration Overview](https://help.quotapath.com/en/articles/4759569-hubspot-integration-overview.md): Overview of QuotaPath's HubSpot integration & setup instructions
+- [HubSpot App Cards](https://help.quotapath.com/en/articles/9529348-hubspot-app-cards.md): Learn how to setup HubSpot App Cards
+- [HubSpot App Objects](https://help.quotapath.com/en/articles/12099563-hubspot-app-objects.md): Learn how to set up and use QuotaPath’s App Objects in HubSpot
+- [API Documentation](https://help.quotapath.com/en/articles/8097859-api-documentation.md): Learn about & access QuotaPath's API
+- [How to generate an API Token](https://help.quotapath.com/en/articles/6634277-how-to-generate-an-api-token.md): Generate an API Token that can be used to interact with the QuotaPath API
+
+## Earnings & Attainment
+
+- [View and Analyze Earnings](https://help.quotapath.com/en/articles/6241356-view-and-analyze-earnings.md): Learn how to filter, analyze, and review earnings by plan, component, period, and deal.
+- [Forecasting Earnings](https://help.quotapath.com/en/articles/6241673-forecasting-earnings.md): How to forecast earnings to see the potential earnings from Pipeline deals in QuotaPath
+- [How QuotaPath Updates Earnings Values](https://help.quotapath.com/en/articles/13564562-how-quotapath-updates-earnings-values.md): Learn when earnings are recalculated and how to view updated values.
+- [How to Review Deal Earnings Calculations](https://help.quotapath.com/en/articles/6241638-how-to-review-deal-earnings-calculations.md): See which components, rates, tiers, and deal values contribute to a commission calculation.
+- [Earnings Explanation](https://help.quotapath.com/en/articles/13767225-earnings-explanation.md): Learn how QuotaPath calculates earnings for an individual deal
+- [View and Analyze Attainment](https://help.quotapath.com/en/articles/6241710-view-and-analyze-attainment.md): Learn how to track quota progress, analyze attainment trends, forecast performance, and review contributing deals.
+- [Forecasting Attainment](https://help.quotapath.com/en/articles/6241767-forecasting-attainment.md): How to forecast attainment in QuotaPath
+- [Earnings and Attainment Tables](https://help.quotapath.com/en/articles/11025772-earnings-and-attainment-tables.md): Navigate and customize your data more efficiently with our updated Earnings and Attainment tables
+
+## Deals
+
+- [Deals Overview](https://help.quotapath.com/en/articles/6236134-deals-overview.md): How to use the Deals page in QuotaPath
+- [How to View and Manage Deal Details](https://help.quotapath.com/en/articles/7919619-how-to-view-and-manage-deal-details.md): Review deal values, earnings calculations, approvals, payouts, history, and source data.
+- [Adding a Deal](https://help.quotapath.com/en/articles/2792421-adding-a-deal.md): How to manually add deals to your QuotaPath Workspace
+- [Editing a Deal](https://help.quotapath.com/en/articles/2792427-editing-a-deal.md): How to make adjustments to a deal in QuotaPath
+- [Deleting a Deal](https://help.quotapath.com/en/articles/2792428-deleting-a-deal.md): How to delete a deal from your QuotaPath Workspace
+- [Exporting Deals and Earnings for Admins](https://help.quotapath.com/en/articles/6236135-exporting-deals-and-earnings-for-admins.md): For Admins: How to export deals and earnings in QuotaPath
+- [Searching for Deals in QuotaPath](https://help.quotapath.com/en/articles/7914817-searching-for-deals-in-quotapath.md): Learn how to find deals and source records using search terms and operators.
+- [Components of a Deal](https://help.quotapath.com/en/articles/2792414-components-of-a-deal.md): Understand each necessary component of a Deal in QuotaPath
+- [Bulk Deal Upload](https://help.quotapath.com/en/articles/4468104-bulk-deal-upload.md): How to upload deals into QuotaPath using a CSV template
+- [Deal Flagging](https://help.quotapath.com/en/articles/5920295-deal-flagging.md): How to proactively surface and resolve commission discrepancies within QuotaPath with Deal Flagging
+- [How to Manually Split Commission on a Deal](https://help.quotapath.com/en/articles/16098936-how-to-manually-split-commission-on-a-deal.md): Learn how to manually split deal attainment and earnings between reps
+
+## Approvals
+
+- [Approvals Overview](https://help.quotapath.com/en/articles/9450038-approvals-overview.md): How to view approval tasks, approve and un-approve earnings
+- [Approve Earnings](https://help.quotapath.com/en/articles/6236136-approve-earnings.md): Learn how to approve earnings in QuotaPath
+- [Discrepancies Overview](https://help.quotapath.com/en/articles/15325214-discrepancies-overview.md): Learn more about how to resolve earnings discrepancies
+- [Dismissing a Discrepancy](https://help.quotapath.com/en/articles/15679979-dismissing-a-discrepancy.md): How to dismiss a discrepancy
+
+## Payouts
+
+- [Payouts Overview](https://help.quotapath.com/en/articles/6193525-payouts-overview.md): How to approve deals, schedule payouts and export payroll
+- [Payouts Eligibility](https://help.quotapath.com/en/articles/6457485-payouts-eligibility.md): How to determine when a deal is eligible to be paid in QuotaPath
+- [Schedule a Payout](https://help.quotapath.com/en/articles/6193541-schedule-a-payout.md): How to schedule a payout in QuotaPath
+- [Clawbacks Overview](https://help.quotapath.com/en/articles/15325102-clawbacks-overview.md): Learn more about how clawbacks are generated
+- [Schedule a Clawback](https://help.quotapath.com/en/articles/6193646-schedule-a-clawback.md): How to schedule a clawback in QuotaPath
+- [Create a Payout or Clawback](https://help.quotapath.com/en/articles/6193714-create-a-payout-or-clawback.md): How to create a Payout or Clawback in QuotaPath
+- [Export Unscheduled Payouts](https://help.quotapath.com/en/articles/6193833-export-unscheduled-payouts.md): How to export unscheduled payouts in QuotaPath
+- [Export Scheduled Payouts](https://help.quotapath.com/en/articles/6193843-export-scheduled-payouts.md): How to export scheduled payouts in QuotaPath
+- [How to send payouts to Rippling](https://help.quotapath.com/en/articles/11099473-how-to-send-payouts-to-rippling.md): Learn how to send QuotaPath payouts into a Rippling pay run
+- [Dismissing a Clawback](https://help.quotapath.com/en/articles/15679938-dismissing-a-clawback.md): How to dismiss a clawback and later manage dismissals
+- [How to delete scheduled Payouts](https://help.quotapath.com/en/articles/15985224-how-to-delete-scheduled-payouts.md): Delete scheduled payouts from the Export tab on the Payouts page
+
+## Home
+
+- [Home for Admins Overview](https://help.quotapath.com/en/articles/7909495-home-for-admins-overview.md): Understand how Admins can use Home
+- [Home for Members & Managers Overview](https://help.quotapath.com/en/articles/8106410-home-for-members-managers-overview.md): Understand how Members and Team Managers can use Home
+
+## Settings
+
+- [Editing Workspace Currency](https://help.quotapath.com/en/articles/6193730-editing-workspace-currency.md): How to edit and set Workspace currency in QuotaPath
+- [Adjusting Fiscal Year](https://help.quotapath.com/en/articles/6193732-adjusting-fiscal-year.md): How to adjust and set custom fiscal years in QuotaPath
+- [Mapping Manager](https://help.quotapath.com/en/articles/9397390-mapping-manager.md): Learn how Admins can manage their integration mappings
+- [Multi-Currency](https://help.quotapath.com/en/articles/6511711-multi-currency.md): How to set and manage your teams' local currencies and exchange rates in currency manager. Keywords: multicurrency, multiple currencies
+- [Managing Approvals Workflow](https://help.quotapath.com/en/articles/6193734-managing-approvals-workflow.md): Learn how to manage your workspace approvals workflow
+- [Turning off Plan Verification](https://help.quotapath.com/en/articles/6193740-turning-off-plan-verification.md): How to turn Plan Verification off and on in QuotaPath
+- [Adding Custom Additional Fields](https://help.quotapath.com/en/articles/6193745-adding-custom-additional-fields.md): How to add custom additional fields that will be used throughout your QuotaPath Workspace
+- [Okta Single Sign-On](https://help.quotapath.com/en/articles/8182987-okta-single-sign-on.md): How to set up Single Sign-On using Okta for your QuotaPath workspace
+- [Microsoft Single Sign-On](https://help.quotapath.com/en/articles/10471216-microsoft-single-sign-on.md): How to set up Single Sign-On using Microsoft for your QuotaPath workspace
+- [Period Summary Emails](https://help.quotapath.com/en/articles/12978292-period-summary-emails.md): Learn when monthly earnings summaries are sent and how to manage them.
+
+## Members
+
+- [Adding Members](https://help.quotapath.com/en/articles/6175508-adding-members.md): How to add members in QuotaPath
+- [Setting Workspace Role](https://help.quotapath.com/en/articles/6175534-setting-workspace-role.md): How to set Workspace roles in QuotaPath
+- [Removing and/or Deactivating Members](https://help.quotapath.com/en/articles/6175569-removing-and-or-deactivating-members.md): How to remove and/or deactivate Members in QuotaPath
+- [Sending Invites](https://help.quotapath.com/en/articles/6175630-sending-invites.md): How to send invites to members in QuotaPath
+- [Member Details](https://help.quotapath.com/en/articles/8106413-member-details.md): Learn how to view and edit a Member's details for quick insights
+- [Exporting Member Data in QuotaPath](https://help.quotapath.com/en/articles/15985749-exporting-member-data-in-quotapath.md): How to export and view Member data
+
+## Teams
+
+- [Creating a Team](https://help.quotapath.com/en/articles/6242352-creating-a-team.md): How to create teams in QuotaPath for Admins
+- [Adding Members to a Team](https://help.quotapath.com/en/articles/6244483-adding-members-to-a-team.md): How to add team members to team & set team assignment dates
+- [Adding Team Managers](https://help.quotapath.com/en/articles/6582133-adding-team-managers.md): Learn how to assign team managers to team & set permission levels
+- [Adding a Leaderboard](https://help.quotapath.com/en/articles/6244554-adding-a-leaderboard.md): How to add a leaderboard to a team
+- [Setting the Data Source for Leaderboards](https://help.quotapath.com/en/articles/6244603-setting-the-data-source-for-leaderboards.md): Learn how to set the data source to populate a leaderboard
+- [Understanding the Team Attainment view](https://help.quotapath.com/en/articles/3332507-understanding-the-team-attainment-view.md): How to view team attainment leaderboards
+- [Team Contests](https://help.quotapath.com/en/articles/8681823-team-contests.md): Learn how Admins can create contests for friendly competition!
+- [Editing a Team](https://help.quotapath.com/en/articles/6242386-editing-a-team.md): How to edit a team in QuotaPath
+- [Deleting a Team](https://help.quotapath.com/en/articles/6244463-deleting-a-team.md): How to delete a team in QuotaPath
+
+## Ledger
+
+- [Using Ledger for Commission Expense Recognition](https://help.quotapath.com/en/articles/5795134-using-ledger-for-commission-expense-recognition.md): How to use Ledger to recognize expenses from commissions and bonuses earned by reps in QuotaPath
+
+## Reports
+
+- [Custom Reports](https://help.quotapath.com/en/articles/8732689-custom-reports.md): Learn how Admins can build custom reports
+
+## Product Walkthrough Videos
+
+- [Adding New Users to your QuotaPath workspace](https://help.quotapath.com/en/articles/6685085-adding-new-users-to-your-quotapath-workspace.md): Learn how Admins can add new users & set the user's role
+- [How to Assign a User to Their Plan](https://help.quotapath.com/en/articles/6685106-how-to-assign-a-user-to-their-plan.md): Learn how an Admin can assign a user to their plan
+- [How to Assign Quotas & Rates](https://help.quotapath.com/en/articles/6687965-how-to-assign-quotas-rates.md): Learn how Admins can assign Quotas & Rates
+- [How to Build Teams](https://help.quotapath.com/en/articles/6688104-how-to-build-teams.md): Learn how Admins can build Teams
+- [How to view Earnings & Attainment](https://help.quotapath.com/en/articles/7002358-how-to-view-earnings-attainment.md): Learn how Admins can view and audit Earnings & Attainment
+- [How to Approve Deals](https://help.quotapath.com/en/articles/6688197-how-to-approve-deals.md): Learn how Admins can approve Deals
+- [How to Override Deal Values](https://help.quotapath.com/en/articles/7002373-how-to-override-deal-values.md): Learn how Admins can override deal values
+- [How to Override Earnings](https://help.quotapath.com/en/articles/7002375-how-to-override-earnings.md): Learn how Admins can override earnings
+- [How to Resolve Discrepancies](https://help.quotapath.com/en/articles/6720032-how-to-resolve-discrepancies.md): Learn how Admins can resolve discrepancies in earnings
+- [How to Resolve Flags on Deals](https://help.quotapath.com/en/articles/6688132-how-to-resolve-flags-on-deals.md): Learn how Admins can resolve Flags on Deals
+- [How to Schedule Payouts](https://help.quotapath.com/en/articles/6720021-how-to-schedule-payouts.md): Learn how Admins can schedule payouts in QuotaPath
+- [How to Resolve Clawbacks](https://help.quotapath.com/en/articles/6720034-how-to-resolve-clawbacks.md): Learn how Admins can resolve Clawbacks or Overpaid Payouts
+- [How to Export Payouts](https://help.quotapath.com/en/articles/6720027-how-to-export-payouts.md): Learn how Admins can export Payouts for payment
+- [How to Recognize Expenses for ASC 606](https://help.quotapath.com/en/articles/6720036-how-to-recognize-expenses-for-asc-606.md): Learn how Admins can recognize Expenses in Ledger for ASC 606
+- [How to Archive Plans](https://help.quotapath.com/en/articles/7002372-how-to-archive-plans.md): Learn how Admins can archive plans no longer in use
+- [How to Deactivate a User](https://help.quotapath.com/en/articles/6720039-how-to-deactivate-a-user.md): Learn how Admins can deactivate a User
+- [New Page Filtering Experience](https://help.quotapath.com/en/articles/11026128-new-page-filtering-experience.md): Our improved filter interface lets you view and manage filters more easily while enhancing performance and eliminating filter resets
+- [How to View Your Team's Plans](https://help.quotapath.com/en/articles/6681337-how-to-view-your-team-s-plans.md): Learn how Team Managers can view their Team's Plans
+- [How to View Your Team's Earnings & Attainment](https://help.quotapath.com/en/articles/6681375-how-to-view-your-team-s-earnings-attainment.md): Learn how Team Managers can view their Team's Earnings & Attainment
+- [How to Approve Your Team's Deals](https://help.quotapath.com/en/articles/6685049-how-to-approve-your-team-s-deals.md): Learn how Team Managers can approve their Team's Deals
+- [How to Resolve Your Team's Flagged Deals](https://help.quotapath.com/en/articles/6685071-how-to-resolve-your-team-s-flagged-deals.md): Learn how Team Managers can resolve their Team's Flags or flag their Team's Deals
+- [Exporting Deals and Earnings for Team Managers](https://help.quotapath.com/en/articles/15512521-exporting-deals-and-earnings-for-team-managers.md): For Team Managers: How to export deals and earnings in QuotaPath
+- [How to view & forecast your Earnings](https://help.quotapath.com/en/articles/7002366-how-to-view-forecast-your-earnings.md): Learn how to view & forecast your Earnings in QuotaPath
+- [How to view & forecast your Attainment](https://help.quotapath.com/en/articles/7002367-how-to-view-forecast-your-attainment.md): Learn how to view & forecast your Quota Attainment in QuotaPath
+- [How to Flag Your Deals](https://help.quotapath.com/en/articles/7002369-how-to-flag-your-deals.md): Learn how reps can flag Deals to their Managers or Admins
+- [How to view your Approved Deals & Payouts](https://help.quotapath.com/en/articles/7002370-how-to-view-your-approved-deals-payouts.md): Learn how you can view your Approved Deals & Scheduled Payouts
+- [Export Deals and Earnings as a Member](https://help.quotapath.com/en/articles/15513070-export-deals-and-earnings-as-a-member.md): Learn how Members export their own deal and earnings records to a CSV file.
+
+## Troubleshooting
+
+- [Troubleshooting Incorrect Earnings](https://help.quotapath.com/en/articles/6980483-troubleshooting-incorrect-earnings.md): Learn how to review deal data, plan settings, rates, mappings, and approvals when earnings are missing or appear incorrect.
+- [Troubleshooting Google Sheets integration](https://help.quotapath.com/en/articles/15001163-troubleshooting-google-sheets-integration.md): How to solve Google sheet integration sync errors
+- [Troubleshooting Excel Sync Errors in QuotaPath](https://help.quotapath.com/en/articles/15170895-troubleshooting-excel-sync-errors-in-quotapath.md): Quick steps to troubleshoot and fix your Excel sync errors
+- [Troubleshooting Roll-Up Components](https://help.quotapath.com/en/articles/15059471-troubleshooting-roll-up-components.md): Learn how to troubleshoot issues with roll-ups
+- [Missing or Incorrect Deals](https://help.quotapath.com/en/articles/13172733-missing-or-incorrect-deals.md): Troubleshooting tips when a deal is missing or has incorrect data
+
+## Customer Resources
+
+- [Customer Support](https://help.quotapath.com/en/articles/8097812-customer-support.md): Learn about customer support resources at QuotaPath
+- [Whitelisting QuotaPath Customer Emails](https://help.quotapath.com/en/articles/8546534-whitelisting-quotapath-customer-emails.md): How to whitelist QuotaPath domain and IP address to avoid QuotaPath emails in your Spam folder.
+
+## Atlas
+
+- [What is Atlas?](https://help.quotapath.com/en/articles/14327363-what-is-atlas.md): Learn what Atlas is and how it helps you design, analyze, and optimize compensation plans.
+- [Getting Started](https://help.quotapath.com/en/articles/14327537-getting-started.md): Create your account, set up your workspace, and start your first conversation in Atlas.
+- [Chat](https://help.quotapath.com/en/articles/14327564-chat.md): Use chat to ask questions, upload data, and interact with Atlas.
+- [Comp Plan Grader](https://help.quotapath.com/en/articles/14327571-comp-plan-grader.md): Evaluate your compensation plan against benchmarks and get actionable recommendations.
+- [Performance Modeling](https://help.quotapath.com/en/articles/14327585-performance-modeling.md): Test how compensation plans perform under different scenarios before rolling them out.
+- [Briefs](https://help.quotapath.com/en/articles/14327612-briefs.md): Turn chat outputs into structured, shareable, interactive documents for your team.
+- [Spaces and Models](https://help.quotapath.com/en/articles/14327623-spaces-and-models.md): Organize your work by team, project, or scenario using spaces and models.
+- [Data Sources](https://help.quotapath.com/en/articles/14327628-data-sources.md): Upload and manage the data that Atlas uses to provide context and analysis.
+- [Billing and Plans](https://help.quotapath.com/en/articles/14327646-billing-and-plans.md): Understand Atlas pricing, plans, and how billing works.
+- [Settings](https://help.quotapath.com/en/articles/14327635-settings.md): Manage your profile, workspace configuration, and subscription.
+- [Security, Privacy & Terms](https://help.quotapath.com/en/articles/15319179-security-privacy-terms.md): What you need to know about data handling, AI providers, and legal coverage for Atlas.
+
+## Account & Billing
+
+- [Invoice, Billing and Account FAQs](https://help.quotapath.com/en/articles/16111832-invoice-billing-and-account-faqs.md): Answers to the most frequently asked questions around invoicing, billing and QuotaPath customer accounts

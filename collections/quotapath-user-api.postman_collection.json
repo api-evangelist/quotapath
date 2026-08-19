@@ -1,0 +1,150 @@
+{
+  "item": [
+    {
+      "id": "3a4bc64f-6621-4f4c-ab9d-dfec11b05b60",
+      "name": "user",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "14a16da6-c3ad-4f8b-96a2-a3a84104a46a",
+          "name": "user list",
+          "request": {
+            "name": "user list",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The initial index from which to return the results."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dc0ee3bc-4a39-4167-b4a6-84d05b89e51d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 7086,\n  \"results\": [\n    {\n      \"email\": \"BVPltGB@FCZ.im\",\n      \"id\": \"1f8fcad5-07b3-cdc4-7b41-f6d61d132298\",\n      \"name\": \"string\"\n    },\n    {\n      \"email\": \"JcUw4lokOCeI@gNqhQyCKPsOgzFoVELZJcvYsBXjpgfD.kmn\",\n      \"id\": \"e5f2eced-4ea7-31dc-8e40-b29c28d921c6\",\n      \"name\": \"string\"\n    }\n  ],\n  \"next\": \"https://MTQqSzhDMNjLD.emlgD28AAy+wzt-r9N5ii1PQ.8ODNJXtDw9c.vo38\",\n  \"previous\": \"http://NDRrnUIyDRMMjWmGWGebcVeYYUrFlIh.mbzC2DuSf5MFu0yF4F0izhCm6mjEBDMLTUwCIB\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.quotapath.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c7666cda-f57c-4db6-b41a-03869125af0b",
+    "name": "QuotaPath data user API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Documentation for the QuotaPath API",
+      "type": "text/plain"
+    }
+  }
+}

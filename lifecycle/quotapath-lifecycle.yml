@@ -1,20 +1,56 @@
-generated: '2026-07-20'
-method: derived
-source: openapi/quotapath-openapi-original.json
+generated: '2026-08-14'
+method: searched
+source: >-
+  openapi/_original/quotapath-openapi-original.json, https://api.quotapath.com/docs/,
+  and live probes of quotapath.com hosts (2026-08-14)
 versioning:
   scheme: uri-path
   current: v1
   base_url: https://api.quotapath.com/v1
   docs: https://api.quotapath.com/docs/
+  spec_version: v1
 deprecation:
   policy_url: null
   sunset_header: false
-  notes: No deprecation or Sunset/Deprecation (RFC 8594) policy documented.
-status_page: null
+  deprecation_header: false
+  notes: >-
+    No deprecation or Sunset/Deprecation (RFC 8594) policy is documented anywhere
+    on api.quotapath.com, www.quotapath.com or the help center. No operation in
+    the OpenAPI carries deprecated: true.
+status_page:
+  url: null
+  probed: https://status.quotapath.com/
+  http_status: 200
+  finding: >-
+    status.quotapath.com resolves, but returns the same 82KB HTML application
+    shell the API host serves for every unmatched path — it is a wildcard-DNS
+    soft 200, not a status page. No StatusPage pointer is wired.
+changelog:
+  url: null
+  notes: >-
+    No dated changelog or release-notes page exists. /changelog/, /release-notes/,
+    /whats-new/ and /product-updates/ all returned 404 on www.quotapath.com.
+    Product changes are announced in long-form blog posts at
+    quotapath.com/blog/ with no version numbers, so no ChangeLog artifact could
+    be built without fabricating a version scheme.
 sla:
   url: null
+  notes: >-
+    No public SLA or uptime commitment. Support hours are published as live chat
+    9am-6pm ET Monday-Friday (quotapath.com/pricing).
 deprecated_operations: []
+x-evidence:
+- url: https://status.quotapath.com/
+  status: 200
+  note: SPA shell, not a status page
+- url: https://www.quotapath.com/changelog/
+  status: 404
+- url: https://www.quotapath.com/release-notes/
+  status: 404
+- url: https://www.quotapath.com/product-updates/
+  status: 404
 notes: >-
-  No dedicated public status page (status.quotapath.com resolves only to the
-  application SPA shell) and no published deprecation policy were found. Only the
-  URI-path v1 versioning is confirmed.
+  Only the URI-path v1 versioning is confirmed. There is no status page, no
+  deprecation policy, no changelog and no SLA, so neither a StatusPage nor a
+  Deprecation nor a ChangeLog pointer is wired in apis.yml — recorded absences,
+  not omissions.

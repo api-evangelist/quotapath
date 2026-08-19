@@ -1,0 +1,95 @@
+generated: '2026-08-14'
+method: probed
+source: >-
+  Derived from openapi/_original/quotapath-openapi-original.json (which declares
+  only 2xx responses) and confirmed against live unauthenticated probes of
+  https://api.quotapath.com/v1/user/ on 2026-08-14.
+format: bespoke-json
+rfc9457: false
+content_type: application/json
+envelope:
+  shape: '{"detail": "<human-readable message>"}'
+  fields:
+  - name: detail
+    type: string
+    description: Human-readable error message. The only field observed on error responses.
+  note: >-
+    QuotaPath returns the stock Django REST Framework error envelope — a flat JSON
+    object with a single `detail` string. There is no machine-readable error code,
+    no error type URI, no request id in the body, and no application/problem+json
+    (RFC 9457) media type. Field-level validation failures in DRF conventionally
+    return a map of field name to message array instead of `detail`, but no
+    validation error was induced against production and none is documented, so
+    that shape is NOT asserted here.
+spec_coverage:
+  documented_4xx_5xx_responses: 0
+  documented_2xx_responses: 18
+  note: >-
+    The published OpenAPI 3.0 definition documents only 200/201/204 across all 18
+    operations. Not one error response is declared, so no problem types can be
+    derived from the spec — everything below was established by probing the live
+    API or read from response headers.
+problem_types:
+- code: null
+  http_status: 401
+  title: Authentication credentials were not provided.
+  detail: Returned when no Authorization header is present on a request to a protected endpoint.
+  envelope: '{"detail": "Authentication credentials were not provided."}'
+  headers:
+    www-authenticate: Token
+  remediation: >-
+    Send Authorization: Token <api-key>. Generate the key in the QuotaPath app under
+    Settings > API Tokens (value is shown once). API access requires a Premium
+    subscription.
+  method: probed
+  evidence:
+    url: https://api.quotapath.com/v1/user/
+    http_status: 401
+    fetched: '2026-08-14'
+- code: null
+  http_status: 401
+  title: Invalid token.
+  detail: Returned when the Authorization header carries a token QuotaPath does not recognize.
+  envelope: '{"detail": "Invalid token."}'
+  headers:
+    www-authenticate: Token
+  remediation: >-
+    Confirm the token was copied in full and is prefixed with "Token " (not "Bearer ").
+    Regenerate under Settings > API Tokens if the value was lost.
+  method: probed
+  evidence:
+    url: https://api.quotapath.com/v1/user/
+    http_status: 401
+    fetched: '2026-08-14'
+    request_header: 'Authorization: Token <invalid>'
+- code: null
+  http_status: 404
+  title: Unknown path
+  detail: >-
+    Requests to a path outside the documented /v1 surface fall through to the
+    application's HTML shell rather than a JSON error — content-type text/html,
+    not application/json.
+  envelope: null
+  remediation: >-
+    Check the path against https://api.quotapath.com/docs/. Note that a 404 from
+    this API is NOT machine-parseable as JSON; agents must branch on content-type.
+  method: probed
+  evidence:
+    url: https://api.quotapath.com/v1/nosuchthing/
+    http_status: 404
+    content_type: text/html; charset=utf-8
+    fetched: '2026-08-14'
+undocumented:
+  note: >-
+    No 400/403/409/422/429/5xx shapes are published or were induced. Write paths
+    (/deal/, /deal/bulk/, /data/bulk-import/, /path/{path_uuid}/quota/*) were not
+    exercised against production, so their validation-error shapes remain unknown.
+gaps:
+- Declare 4xx/5xx responses on every operation in the OpenAPI definition.
+- Add a stable machine-readable error code alongside `detail`.
+- Serve application/problem+json (RFC 9457) so agents get a typed error.
+- Return JSON — not the SPA HTML shell — for 404s under /v1.
+cross_links:
+  conventions: conventions/quotapath-conventions.yml
+  authentication: authentication/quotapath-authentication.yml
+  rate_limits: rate-limits/quotapath-rate-limits.yml

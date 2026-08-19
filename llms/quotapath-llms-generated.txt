@@ -1,0 +1,31 @@
+# QuotaPath
+
+> QuotaPath is a sales commission tracking and compensation management platform. It sits as a system of record between a company's CRM, finance stack, and payroll — pulling deals from HubSpot and Salesforce, applying commission plans, quotas, and ASC 606 ledger logic, and syncing payouts to accounting and HRIS systems. The QuotaPath REST API (Premium tier) pushes deals, reads payouts, and manages quota assignments over https://api.quotapath.com/v1 using token API-key auth.
+
+## API
+- [QuotaPath API docs](https://api.quotapath.com/docs/): Redoc reference for the QuotaPath REST API (OpenAPI 3.0, base https://api.quotapath.com/v1)
+- [OpenAPI definition](openapi/quotapath-openapi-original.json): 18 operations across deals, payouts, quotas, plans, teams, users
+
+## Key operations
+- Deals: deal_list, deal_create, deal_bulk_create, deal (get), deal_update, deal_partial_update, deal_delete
+- Bulk import: data_bulk-import_create
+- Quotas: path_quota_assignments_list, path_quota_assignments_create, path_quota_values_list, path_quota_values_create
+- Payouts: payout_list, payout_resolved_list, payout_unresolved_list
+- Org: plan_list, team_list, user_list
+
+## Authentication
+- API key in the Authorization header as 'Token <api-key>'. API access is a Premium-tier feature.
+
+## Conventions
+- [Conventions](conventions/quotapath-conventions.yml): limit/offset pagination with { count, next, previous, results }; no idempotency keys
+- [Authentication](authentication/quotapath-authentication.yml)
+- [Data model](data-model/quotapath-data-model.yml)
+
+## Docs
+- [Developer docs](https://api.quotapath.com/docs/)
+- [Integrations hub](https://www.quotapath.com/integrations-hub/)
+- [Help center](https://help.quotapath.com/)
+- [Pricing](https://www.quotapath.com/pricing/)
+
+## Security & compliance
+- SOC 2 and ISO 27001 (https://trust.quotapath.com/)

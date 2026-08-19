@@ -1,0 +1,53 @@
+generated: '2026-08-14'
+method: probed
+source: >-
+  Live unauthenticated probes of https://api.quotapath.com/v1/user/ (2026-08-14),
+  plus the API reference at https://api.quotapath.com/docs/ and the help center
+  article https://help.quotapath.com/en/articles/8097859-api-documentation
+limit_count: 0
+summary: >-
+  QuotaPath publishes NO rate limits for its REST API, and returns NO rate-limit
+  response headers. The help center addresses call volume only commercially —
+  "QuotaPath does not charge for API calls. How often you want to send QuotaPath
+  data / make API calls is totally up to you" — which is a billing statement, not
+  a documented quota. An agent has no runtime signal to back off on, and no
+  documented ceiling to design against.
+limits: []
+headers:
+  observed: []
+  standard_ratelimit_headers: false
+  x_ratelimit_headers: false
+  retry_after: false
+  note: >-
+    Response headers observed on a live 401 from GET https://api.quotapath.com/v1/user/
+    were date, content-type, content-length, server, www-authenticate, allow,
+    x-cloud-trace-context, access-control-allow-origin, vary,
+    access-control-allow-headers, x-content-type-options, referrer-policy,
+    cross-origin-opener-policy, set-cookie, strict-transport-security,
+    permissions-policy, x-appengine-flex-applatency, via, alt-svc. None of the
+    RateLimit-*, X-RateLimit-* or Retry-After families were present.
+exhaustion:
+  status_code: null
+  body: null
+  note: >-
+    No 429 response is documented in the OpenAPI (which declares only 200/201/204)
+    and none was induced — deliberately not load-tested against a production host.
+    The stack is Django REST Framework behind nginx on Google App Engine Flex;
+    DRF throttling, if enabled, would return 429 with a JSON {"detail": ...} body
+    and a Retry-After header, but that is unverified and is NOT recorded as a limit.
+x-evidence:
+- url: https://api.quotapath.com/v1/user/
+  method: GET
+  http_status: 401
+  fetched: '2026-08-14'
+  finding: no rate-limit headers on the response
+- url: https://help.quotapath.com/en/articles/8097859-api-documentation
+  http_status: 200
+  fetched: '2026-08-14'
+  finding: no published quota; API calls are not metered or charged
+gaps:
+- >-
+  Publishing a rate-limit policy and emitting RateLimit-Limit / RateLimit-Remaining /
+  RateLimit-Reset (or Retry-After on 429) would be the single cheapest
+  agent-readiness improvement available to QuotaPath, particularly given the
+  bulk-import endpoints (/deal/bulk/, /data/bulk-import/) invite high-volume writes.

@@ -1,0 +1,116 @@
+generated: '2026-08-14'
+method: searched
+source: https://www.quotapath.com/pricing/
+docs: https://www.quotapath.com/pricing/
+currency: USD
+billing_period: annual
+billing_note: >-
+  All listed prices are billed annually. Every tier combines a per-user-per-month
+  seat price with a flat monthly platform fee that covers the first 5 users,
+  implementation, the account team and ongoing support. Payment by major credit
+  card in-app; ACH / paper check by arrangement.
+plan_count: 3
+plans:
+- name: Growth
+  price_per_user_per_month: 35
+  platform_fee_per_month: 525
+  currency: USD
+  billing_period: annual
+  seats_included_in_platform_fee: 5
+  api_access: false
+  summary: >-
+    Build an end-to-end commission process to better motivate and align your teams.
+  includes:
+  - Quota, Leaderboards & Contests
+  - Manager & Team Owner Plans
+  - Plan Verification
+  - Calculated fields
+  - Rep's Currency Support
+  - Ledger & ASC 606 Support
+  - Single Source Payouts Eligibility
+  integrations:
+    crm: 6
+    crm_named: [Salesforce, HubSpot, Close, Pipedrive, Zoho, Copper]
+    spreadsheets: [Google Sheets, Excel, Smartsheet]
+  support:
+  - 1:1 Implementation & Training
+  - Dedicated Account Manager & CSM
+  - Zoom Support & Live Chat
+  - Integration & Data Configuration Guidance
+  implementation_time: 45-60 days on average
+- name: Premium
+  price_per_user_per_month: 50
+  platform_fee_per_month: 800
+  currency: USD
+  billing_period: annual
+  seats_included_in_platform_fee: 5
+  api_access: true
+  api_note: >-
+    "API Access" is listed as a Premium-tier feature. The help center confirms an
+    API key requires a paid subscription plan
+    (help.quotapath.com/en/articles/8097859-api-documentation).
+  summary: >-
+    Manage complex compensation processes to power efficient growth at scale.
+  includes:
+  - Everything in Growth
+  - Plan Modeling
+  - Multi-Level Approvals
+  - Custom Reporting
+  - Automated Commission Payroll Sync
+  - API Access
+  - Data SSO
+  - Multi-Source Payouts Eligibility
+  integrations:
+    crm: 11
+    crm_named: [Zoho, Pipedrive, Copper, Close, Keap, JobAdder, Microsoft 365, ConnectWise, LeafLink, HubSpot, Salesforce]
+    spreadsheets: [Google Sheets, Excel, Smartsheet]
+    hris: [Rippling]
+    accounting: [QuickBooks, Maxio, Xero, Sage Intacct, Stripe, Chargebee, NetSuite]
+    bi_erp: [Tableau, Looker, Domo, Snowflake, BigQuery]
+  support:
+  - Dedicated Data Engineer
+  - Priority Support Access
+  - Integration & Data Configuration Management
+  implementation_time: 60-90 days on average
+- name: Strategic
+  price: custom
+  currency: USD
+  billing_period: annual
+  availability: coming-soon
+  api_access: true
+  summary: >-
+    A dedicated comp analyst for your team — QuotaPath designs, models and runs
+    the commissions program end-to-end. Priced custom, scoped to team size and
+    needs. Premium base plus Atlas, bundled.
+  includes:
+  - Everything in Premium
+  - Dedicated comp analyst
+  - End-to-end plan design
+  - Monthly commission runs
+  - Dispute resolution
+  - Scenario modeling & cost forecasting
+  - Variable comp strategy
+  - Benchmark-backed recommendations
+  - Decision tracking & sign-off
+add_ons:
+- name: Atlas
+  description: >-
+    AI-powered plan design, scenario modeling, and benchmark-grounded
+    recommendations. Attachable to Growth or Premium; bundled into Strategic.
+  price_from: 5000
+  currency: USD
+  price_note: 'Listed as "Starting at $5k"; billing period not stated on the pricing page.'
+trial:
+  available: true
+  url: https://www.quotapath.com/trial-start/
+  note: >-
+    "Try for Free" application trial. This is a trial of the QuotaPath product,
+    not an API sandbox — no separate test-mode API host or test credentials are
+    published.
+api_metering:
+  metered: false
+  note: >-
+    QuotaPath's help center states explicitly: "Does QuotaPath charge for API
+    calls? No, QuotaPath does not charge for API calls." API access is gated by
+    subscription tier (Premium and above), not by call volume.
+  source: https://help.quotapath.com/en/articles/8097859-api-documentation

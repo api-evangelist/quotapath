@@ -1,0 +1,150 @@
+{
+  "item": [
+    {
+      "id": "27db8204-17c8-485e-b1fa-deed268b6a5a",
+      "name": "plan",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1ce9f452-7a6a-4eec-a575-dca59894bf15",
+          "name": "plan list",
+          "request": {
+            "name": "plan list",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "plan",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The initial index from which to return the results."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ec84d431-0aa3-4753-aa16-a9326a0f83ca",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "plan",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 8817,\n  \"results\": [\n    {\n      \"assignments\": [\n        {\n          \"email\": \"JmvNd@MTUNLztgyXppnaONtVB.ric\",\n          \"start_date\": \"1949-10-07\",\n          \"end_date\": \"2001-05-17\"\n        },\n        {\n          \"email\": \"40o7uub@DJLcJchnNCltdFAOoaouyMxDVWmru.tpt\",\n          \"start_date\": \"1946-11-10\",\n          \"end_date\": \"1976-11-03\"\n        }\n      ],\n      \"paths\": [\n        {\n          \"id\": \"0f7de062-7941-6598-a799-ce7eb3ee1049\",\n          \"name\": \"string\"\n        },\n        {\n          \"id\": \"eb439e7c-3521-71cd-ead8-bda602911460\",\n          \"name\": \"string\"\n        }\n      ],\n      \"name\": \"string\"\n    },\n    {\n      \"assignments\": [\n        {\n          \"email\": \"rC6rL@EiLtWxNeOWImKYvRDbBxt.wlya\",\n          \"start_date\": \"1967-10-21\",\n          \"end_date\": \"1970-10-04\"\n        },\n        {\n          \"email\": \"NC--7QB0iv7g@sEATteriNRhwXHWR.qx\",\n          \"start_date\": \"2012-05-09\",\n          \"end_date\": \"1996-01-31\"\n        }\n      ],\n      \"paths\": [\n        {\n          \"id\": \"ec5546cd-fbbb-ff3a-0a06-423b60a5c2a3\",\n          \"name\": \"string\"\n        },\n        {\n          \"id\": \"df9b7df9-7265-58a0-589f-dce1672fe0f0\",\n          \"name\": \"string\"\n        }\n      ],\n      \"name\": \"string\"\n    }\n  ],\n  \"next\": \"http://hATc.hpfDrEgLuHluzmENwyEXcUUuWCzYjw\",\n  \"previous\": \"https://ZdXLwMTYQyeAgKbRqAXXjUkqRZPo.gkaxIDhq3RcdbcC9BJ-EK1148mJHIseSXMTEyh\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.quotapath.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "198337b0-956f-491f-b348-d41813649474",
+    "name": "QuotaPath data plan API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Documentation for the QuotaPath API",
+      "type": "text/plain"
+    }
+  }
+}

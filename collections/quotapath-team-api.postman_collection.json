@@ -1,0 +1,150 @@
+{
+  "item": [
+    {
+      "id": "53c3a3f8-1a0e-47da-b916-26100f24a9ec",
+      "name": "team",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7952be9e-a014-4e23-95bd-631fe9594930",
+          "name": "team list",
+          "request": {
+            "name": "team list",
+            "description": {
+              "content": "This view gets the workspace's team IDs + names\nalong with lists of the current member & manager emails",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "team",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The initial index from which to return the results."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dbb2851d-e762-497a-b594-bf89ded19e6a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "team",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 6613,\n  \"results\": [\n    {\n      \"id\": 6828,\n      \"name\": \"string\",\n      \"current_members\": \"string\",\n      \"current_managers\": \"string\"\n    },\n    {\n      \"id\": 6005,\n      \"name\": \"string\",\n      \"current_members\": \"string\",\n      \"current_managers\": \"string\"\n    }\n  ],\n  \"next\": \"https://jXlDDLSkQFgMhRrbbXrVNovTKC.eqnorKQtWMzBGBKtJAXvs2EDiowwXNvxa7UgJ-Jre11,I6XE3pCB.Wkvcpzq\",\n  \"previous\": \"https://kGPOBpSxVPIYMRf.bljZ9zQt.jFVvfr8HA,yd5tlyk8QTnaiicpmc13MfxFlodNLz.gFqZ0NGPQNwmTQsut,KC,t,bdFBAjlCrFP9j\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.quotapath.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e1b87784-8f48-4e90-9945-94026fbea1fd",
+    "name": "QuotaPath data team API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Documentation for the QuotaPath API",
+      "type": "text/plain"
+    }
+  }
+}
