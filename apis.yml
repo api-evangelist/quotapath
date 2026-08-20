@@ -56,6 +56,8 @@ apis:
   humanURL: https://api.quotapath.com/docs/
   baseURL: https://api.quotapath.com/v1
   tags:
+  - Data
+  tags_raw:
   - data
   properties:
   - type: OpenAPI
@@ -80,6 +82,8 @@ apis:
   humanURL: https://api.quotapath.com/docs/
   baseURL: https://api.quotapath.com/v1
   tags:
+  - Path
+  tags_raw:
   - path
   properties:
   - type: OpenAPI
@@ -92,6 +96,8 @@ apis:
   humanURL: https://api.quotapath.com/docs/
   baseURL: https://api.quotapath.com/v1
   tags:
+  - Payout
+  tags_raw:
   - payout
   properties:
   - type: OpenAPI
@@ -104,6 +110,8 @@ apis:
   humanURL: https://api.quotapath.com/docs/
   baseURL: https://api.quotapath.com/v1
   tags:
+  - Plan
+  tags_raw:
   - plan
   properties:
   - type: OpenAPI
@@ -116,6 +124,8 @@ apis:
   humanURL: https://api.quotapath.com/docs/
   baseURL: https://api.quotapath.com/v1
   tags:
+  - Team
+  tags_raw:
   - team
   properties:
   - type: OpenAPI
@@ -128,6 +138,8 @@ apis:
   humanURL: https://api.quotapath.com/docs/
   baseURL: https://api.quotapath.com/v1
   tags:
+  - User
+  tags_raw:
   - user
   properties:
   - type: OpenAPI
