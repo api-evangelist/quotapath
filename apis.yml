@@ -94,7 +94,7 @@ apis:
   humanURL: https://api.quotapath.com/docs/
   baseURL: https://api.quotapath.com/v1
   tags:
-  - Path
+  - path
   tags_raw:
   - path
   properties:
@@ -108,7 +108,7 @@ apis:
   humanURL: https://api.quotapath.com/docs/
   baseURL: https://api.quotapath.com/v1
   tags:
-  - Payout
+  - payout
   tags_raw:
   - payout
   properties:
@@ -122,7 +122,7 @@ apis:
   humanURL: https://api.quotapath.com/docs/
   baseURL: https://api.quotapath.com/v1
   tags:
-  - Plan
+  - plan
   tags_raw:
   - plan
   properties:
