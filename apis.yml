@@ -82,6 +82,8 @@ apis:
   humanURL: https://api.quotapath.com/docs/
   baseURL: https://api.quotapath.com/v1
   tags:
+  - Deal
+  tags_raw:
   - deal
   properties:
   - type: OpenAPI
@@ -94,7 +96,7 @@ apis:
   humanURL: https://api.quotapath.com/docs/
   baseURL: https://api.quotapath.com/v1
   tags:
-  - path
+  - Path
   tags_raw:
   - path
   properties:
@@ -108,7 +110,7 @@ apis:
   humanURL: https://api.quotapath.com/docs/
   baseURL: https://api.quotapath.com/v1
   tags:
-  - payout
+  - Payout
   tags_raw:
   - payout
   properties:
@@ -122,7 +124,7 @@ apis:
   humanURL: https://api.quotapath.com/docs/
   baseURL: https://api.quotapath.com/v1
   tags:
-  - plan
+  - Plan
   tags_raw:
   - plan
   properties:
