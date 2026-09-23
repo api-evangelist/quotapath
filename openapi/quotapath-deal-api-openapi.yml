@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: QuotaPath data deal API
+  title: QuotaPath Deal API
   description: Documentation for the QuotaPath API
   x-logo:
     url: https://storage.googleapis.com/quotapath-prod-app/qp_logos/logo_primary.png
@@ -11,7 +11,7 @@ servers:
 security:
 - token_auth: []
 tags:
-- name: deal
+- name: Deal
 paths:
   /deal/:
     parameters: []
@@ -47,19 +47,23 @@ paths:
                   count:
                     type: integer
                   next:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: uri
-                    nullable: true
                   previous:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: uri
-                    nullable: true
                   results:
                     type: array
                     items:
                       $ref: '#/components/schemas/ExternalDeal'
       tags:
-      - deal
+      - Deal
+      summary: Deal list
+      x-summary-source: derived
     post:
       operationId: deal_create
       description: 'List filtered deals or create deal with payload. No query params will list all
@@ -75,7 +79,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/ExternalDeal'
       tags:
-      - deal
+      - Deal
+      summary: Deal create
+      x-summary-source: derived
   /deal/bulk/:
     parameters: []
     post:
@@ -98,7 +104,9 @@ paths:
                   type: object
                   properties: {}
       tags:
-      - deal
+      - Deal
+      summary: Deal bulk create
+      x-summary-source: derived
   /deal/{uuid}/:
     parameters:
     - name: uuid
@@ -117,7 +125,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/ExternalDeal'
       tags:
-      - deal
+      - Deal
+      summary: Deal
+      x-summary-source: derived
     put:
       operationId: deal_update
       description: View for retrieve, update, delete based on deal uuid
@@ -131,7 +141,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/ExternalDeal'
       tags:
-      - deal
+      - Deal
+      summary: Deal update
+      x-summary-source: derived
     patch:
       operationId: deal_partial_update
       description: View for retrieve, update, delete based on deal uuid
@@ -145,7 +157,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/ExternalDeal'
       tags:
-      - deal
+      - Deal
+      summary: Deal partial update
+      x-summary-source: derived
     delete:
       operationId: deal_delete
       description: View for retrieve, update, delete based on deal uuid
@@ -153,53 +167,18 @@ paths:
         '204':
           description: ''
       tags:
-      - deal
+      - Deal
+      summary: Deal delete
+      x-summary-source: derived
 components:
+  requestBodies:
+    ExternalDeal:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ExternalDeal'
+      required: true
   schemas:
-    ExternalBulkDealInput:
-      required:
-      - deals
-      type: object
-      properties:
-        deals:
-          type: array
-          items:
-            $ref: '#/components/schemas/ExternalBulkDeal'
-    ExternalDealMetadata:
-      required:
-      - date_field_1
-      - date_field_2
-      - number_field_1
-      type: object
-      properties:
-        date_field_1:
-          title: Date field 1
-          type: string
-          format: date
-        date_field_2:
-          title: Date field 2
-          type: string
-          format: date
-        number_field_1:
-          title: Number field 1
-          type: string
-          format: decimal
-      nullable: true
-    ExternalDealValue:
-      required:
-      - value
-      - path_id
-      type: object
-      properties:
-        value:
-          title: Value
-          description: deal amount as number
-          type: number
-        path_id:
-          title: Path id
-          description: path this dealvalue applies to
-          type: string
-          format: uuid
     ExternalDeal:
       required:
       - deal_values
@@ -232,13 +211,16 @@ components:
         integration_id:
           title: Integration id
           description: Unique foreign key from data-integration, paired with source
-          type: string
+          type:
+          - string
+          - 'null'
           minLength: 1
-          nullable: true
         integration_source:
           title: Integration source
           description: Source metadata for data-integration, here to keep relevant source info close at hand to the quotapath API/UI, and allow for upsert logic
-          type: string
+          type:
+          - string
+          - 'null'
           enum:
           - api
           - close
@@ -247,7 +229,6 @@ components:
           - bulk
           - universal
           readOnly: true
-          nullable: true
         name:
           title: Name
           type: string
@@ -273,6 +254,21 @@ components:
           minLength: 1
         metadata:
           $ref: '#/components/schemas/ExternalDealMetadata'
+    ExternalDealValue:
+      required:
+      - value
+      - path_id
+      type: object
+      properties:
+        value:
+          title: Value
+          description: deal amount as number
+          type: number
+        path_id:
+          title: Path id
+          description: path this dealvalue applies to
+          type: string
+          format: uuid
     ExternalBulkDeal:
       required:
       - deal_values
@@ -305,13 +301,16 @@ components:
         integration_id:
           title: Integration id
           description: Unique foreign key from data-integration, paired with source
-          type: string
+          type:
+          - string
+          - 'null'
           minLength: 1
-          nullable: true
         integration_source:
           title: Integration source
           description: Source metadata for data-integration, here to keep relevant source info close at hand to the quotapath API/UI, and allow for upsert logic
-          type: string
+          type:
+          - string
+          - 'null'
           enum:
           - api
           - close
@@ -320,7 +319,6 @@ components:
           - bulk
           - universal
           readOnly: true
-          nullable: true
         name:
           title: Name
           type: string
@@ -346,13 +344,36 @@ components:
           minLength: 1
         metadata:
           $ref: '#/components/schemas/ExternalDealMetadata'
-  requestBodies:
-    ExternalDeal:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ExternalDeal'
-      required: true
+    ExternalDealMetadata:
+      required:
+      - date_field_1
+      - date_field_2
+      - number_field_1
+      type:
+      - object
+      - 'null'
+      properties:
+        date_field_1:
+          title: Date field 1
+          type: string
+          format: date
+        date_field_2:
+          title: Date field 2
+          type: string
+          format: date
+        number_field_1:
+          title: Number field 1
+          type: string
+          format: decimal
+    ExternalBulkDealInput:
+      required:
+      - deals
+      type: object
+      properties:
+        deals:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalBulkDeal'
   securitySchemes:
     token_auth:
       type: apiKey

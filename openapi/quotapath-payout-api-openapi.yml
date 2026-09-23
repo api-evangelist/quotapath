@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: QuotaPath data payout API
+  title: QuotaPath Payout API
   description: Documentation for the QuotaPath API
   x-logo:
     url: https://storage.googleapis.com/quotapath-prod-app/qp_logos/logo_primary.png
@@ -11,7 +11,7 @@ servers:
 security:
 - token_auth: []
 tags:
-- name: payout
+- name: Payout
 paths:
   /payout/:
     parameters: []
@@ -51,19 +51,23 @@ paths:
                   count:
                     type: integer
                   next:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: uri
-                    nullable: true
                   previous:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: uri
-                    nullable: true
                   results:
                     type: array
                     items:
                       $ref: '#/components/schemas/ExternalPayout'
       tags:
-      - payout
+      - Payout
+      summary: Payout list
+      x-summary-source: derived
   /payout/resolved/:
     parameters: []
     get:
@@ -102,19 +106,23 @@ paths:
                   count:
                     type: integer
                   next:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: uri
-                    nullable: true
                   previous:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: uri
-                    nullable: true
                   results:
                     type: array
                     items:
                       $ref: '#/components/schemas/ExternalPayout'
       tags:
-      - payout
+      - Payout
+      summary: Payout resolved list
+      x-summary-source: derived
   /payout/unresolved/:
     parameters: []
     get:
@@ -147,19 +155,23 @@ paths:
                   count:
                     type: integer
                   next:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: uri
-                    nullable: true
                   previous:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: uri
-                    nullable: true
                   results:
                     type: array
                     items:
                       $ref: '#/components/schemas/ExternalUnresolved'
       tags:
-      - payout
+      - Payout
+      summary: Payout unresolved list
+      x-summary-source: derived
 components:
   schemas:
     ExternalUnresolved:
@@ -270,57 +282,65 @@ components:
         deal_date:
           title: Deal date
           description: deal date at time of creation
-          type: string
+          type:
+          - string
+          - 'null'
           format: date
-          nullable: true
         deal_id:
           title: Deal id
           description: nullable foreign key to deal (historical)
-          type: integer
+          type:
+          - integer
+          - 'null'
           maximum: 9223372036854776000
           minimum: -9223372036854776000
-          nullable: true
         deal_integration_id:
           title: Deal integration id
           description: deal integration id at time of creation
-          type: string
+          type:
+          - string
+          - 'null'
           minLength: 1
-          nullable: true
         deal_integration_source:
           title: Deal integration source
           description: deal integration source at time of creation
-          type: string
+          type:
+          - string
+          - 'null'
           maxLength: 255
           minLength: 1
-          nullable: true
         deal_name:
           title: Deal name
           description: deal name at time of creation
-          type: string
+          type:
+          - string
+          - 'null'
           maxLength: 255
           minLength: 1
-          nullable: true
         deal_term_start_date:
           title: Deal term start date
           description: optional deal metadata term_start_date at time of creation
-          type: string
+          type:
+          - string
+          - 'null'
           format: date
-          nullable: true
         deal_term_end_date:
           title: Deal term end date
           description: optional deal metadata term_end_date at time of creation
-          type: string
+          type:
+          - string
+          - 'null'
           format: date
-          nullable: true
         deal_term_duration:
           title: Deal term duration
           type: number
         deal_uuid:
           title: Deal uuid
           description: optional deal uuid at time of creation
-          type: string
+          type:
+          - string
+          - 'null'
           format: uuid
-          nullable: true
         id:
           title: Id
           type: string
@@ -329,23 +349,26 @@ components:
         path_name:
           title: Path name
           description: path name at time of creation
-          type: string
+          type:
+          - string
+          - 'null'
           maxLength: 255
           minLength: 1
-          nullable: true
         plan_name:
           title: Plan name
           description: Plan name at time of creation
-          type: string
+          type:
+          - string
+          - 'null'
           maxLength: 255
           minLength: 1
-          nullable: true
         target_user_email:
           title: Target user email
           description: User email (historical)
-          type: string
+          type:
+          - string
+          - 'null'
           minLength: 1
-          nullable: true
         target_user_name:
           title: Target user name
           description: User first + last name, or email if unavailable, at time of creation

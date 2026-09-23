@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: QuotaPath data plan API
+  title: QuotaPath Plan API
   description: Documentation for the QuotaPath API
   x-logo:
     url: https://storage.googleapis.com/quotapath-prod-app/qp_logos/logo_primary.png
@@ -11,7 +11,7 @@ servers:
 security:
 - token_auth: []
 tags:
-- name: plan
+- name: Plan
 paths:
   /plan/:
     parameters: []
@@ -45,21 +45,38 @@ paths:
                   count:
                     type: integer
                   next:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: uri
-                    nullable: true
                   previous:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: uri
-                    nullable: true
                   results:
                     type: array
                     items:
                       $ref: '#/components/schemas/ExternalPlan'
       tags:
-      - plan
+      - Plan
+      summary: Plan list
+      x-summary-source: derived
 components:
   schemas:
+    ExternalPath:
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          readOnly: true
+          minLength: 1
     ExternalAssignment:
       required:
       - email
@@ -72,16 +89,18 @@ components:
           minLength: 1
         start_date:
           title: Start date
-          type: string
+          type:
+          - string
+          - 'null'
           format: date
           readOnly: true
-          nullable: true
         end_date:
           title: End date
-          type: string
+          type:
+          - string
+          - 'null'
           format: date
           readOnly: true
-          nullable: true
     ExternalPlan:
       required:
       - assignments
@@ -101,19 +120,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ExternalPath'
-    ExternalPath:
-      type: object
-      properties:
-        id:
-          title: Id
-          type: string
-          format: uuid
-          readOnly: true
-        name:
-          title: Name
-          type: string
-          readOnly: true
-          minLength: 1
   securitySchemes:
     token_auth:
       type: apiKey
