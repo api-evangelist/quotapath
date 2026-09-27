@@ -66,7 +66,7 @@ tags:
 - Payroll
 apis:
 - aid: quotapath:quotapath-data-api
-  name: QuotaPath data API
+  name: QuotaPath Data API
   description: The data API from QuotaPath — 1 operation(s) for data.
   humanURL: https://api.quotapath.com/docs/
   baseURL: https://api.quotapath.com/v1
@@ -80,7 +80,7 @@ apis:
   - type: APIReference
     url: https://api.quotapath.com/docs/
 - aid: quotapath:quotapath-deal-api
-  name: QuotaPath deal API
+  name: QuotaPath Deal API
   description: The deal API from QuotaPath — 3 operation(s) for deal.
   humanURL: https://api.quotapath.com/docs/
   baseURL: https://api.quotapath.com/v1
@@ -94,7 +94,7 @@ apis:
   - type: APIReference
     url: https://api.quotapath.com/docs/
 - aid: quotapath:quotapath-path-api
-  name: QuotaPath path API
+  name: QuotaPath Path API
   description: The path API from QuotaPath — 2 operation(s) for path.
   humanURL: https://api.quotapath.com/docs/
   baseURL: https://api.quotapath.com/v1
@@ -108,7 +108,7 @@ apis:
   - type: APIReference
     url: https://api.quotapath.com/docs/
 - aid: quotapath:quotapath-payout-api
-  name: QuotaPath payout API
+  name: QuotaPath Payout API
   description: The payout API from QuotaPath — 3 operation(s) for payout.
   humanURL: https://api.quotapath.com/docs/
   baseURL: https://api.quotapath.com/v1
@@ -122,7 +122,7 @@ apis:
   - type: APIReference
     url: https://api.quotapath.com/docs/
 - aid: quotapath:quotapath-plan-api
-  name: QuotaPath plan API
+  name: QuotaPath Plan API
   description: The plan API from QuotaPath — 1 operation(s) for plan.
   humanURL: https://api.quotapath.com/docs/
   baseURL: https://api.quotapath.com/v1
@@ -136,7 +136,7 @@ apis:
   - type: APIReference
     url: https://api.quotapath.com/docs/
 - aid: quotapath:quotapath-team-api
-  name: QuotaPath team API
+  name: QuotaPath Team API
   description: The team API from QuotaPath — 1 operation(s) for team.
   humanURL: https://api.quotapath.com/docs/
   baseURL: https://api.quotapath.com/v1
@@ -150,7 +150,7 @@ apis:
   - type: APIReference
     url: https://api.quotapath.com/docs/
 - aid: quotapath:quotapath-user-api
-  name: QuotaPath user API
+  name: QuotaPath User API
   description: The user API from QuotaPath — 1 operation(s) for user.
   humanURL: https://api.quotapath.com/docs/
   baseURL: https://api.quotapath.com/v1

@@ -174,99 +174,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ExternalUnresolved:
-      required:
-      - deal_date
-      - deal_id
-      - deal_integration_id
-      - deal_integration_source
-      - deal_name
-      - deal_term_start_date
-      - deal_term_end_date
-      - deal_term_duration
-      - deal_uuid
-      - deal_value
-      - kind
-      - owed
-      - path_name
-      - plan_name
-      - target_user_email
-      - target_user_name
-      - value
-      type: object
-      properties:
-        updated_ts:
-          title: Updated ts
-          type: string
-          readOnly: true
-        deal_date:
-          title: Deal date
-          type: string
-          format: date
-        deal_id:
-          title: Deal id
-          type: integer
-        deal_integration_id:
-          title: Deal integration id
-          type: string
-          minLength: 1
-        deal_integration_source:
-          title: Deal integration source
-          type: string
-          minLength: 1
-        deal_name:
-          title: Deal name
-          type: string
-          minLength: 1
-        deal_term_start_date:
-          title: Deal term start date
-          type: string
-          format: date
-        deal_term_end_date:
-          title: Deal term end date
-          type: string
-          format: date
-        deal_term_duration:
-          title: Deal term duration
-          type: number
-        deal_uuid:
-          title: Deal uuid
-          description: deal id suitable for api usage
-          type: string
-          format: uuid
-        deal_value:
-          title: Deal value
-          description: Dollar amount of associated deal.
-          type: number
-        kind:
-          title: Kind
-          description: 'Kind of payout: one of unresolved or partially_resolved.'
-          type: string
-          minLength: 1
-        owed:
-          title: Owed
-          description: Dollar amount left unresolved.
-          type: number
-        path_name:
-          title: Path name
-          type: string
-          minLength: 1
-        plan_name:
-          title: Plan name
-          type: string
-          minLength: 1
-        target_user_email:
-          title: Target user email
-          type: string
-          minLength: 1
-        target_user_name:
-          title: Target user name
-          type: string
-          minLength: 1
-        value:
-          title: Value
-          description: Dollar amount already paid out.
-          type: number
     ExternalPayout:
       required:
       - deal_term_duration
@@ -380,6 +287,99 @@ components:
           readOnly: true
         value:
           title: Value
+          type: number
+    ExternalUnresolved:
+      required:
+      - deal_date
+      - deal_id
+      - deal_integration_id
+      - deal_integration_source
+      - deal_name
+      - deal_term_start_date
+      - deal_term_end_date
+      - deal_term_duration
+      - deal_uuid
+      - deal_value
+      - kind
+      - owed
+      - path_name
+      - plan_name
+      - target_user_email
+      - target_user_name
+      - value
+      type: object
+      properties:
+        updated_ts:
+          title: Updated ts
+          type: string
+          readOnly: true
+        deal_date:
+          title: Deal date
+          type: string
+          format: date
+        deal_id:
+          title: Deal id
+          type: integer
+        deal_integration_id:
+          title: Deal integration id
+          type: string
+          minLength: 1
+        deal_integration_source:
+          title: Deal integration source
+          type: string
+          minLength: 1
+        deal_name:
+          title: Deal name
+          type: string
+          minLength: 1
+        deal_term_start_date:
+          title: Deal term start date
+          type: string
+          format: date
+        deal_term_end_date:
+          title: Deal term end date
+          type: string
+          format: date
+        deal_term_duration:
+          title: Deal term duration
+          type: number
+        deal_uuid:
+          title: Deal uuid
+          description: deal id suitable for api usage
+          type: string
+          format: uuid
+        deal_value:
+          title: Deal value
+          description: Dollar amount of associated deal.
+          type: number
+        kind:
+          title: Kind
+          description: 'Kind of payout: one of unresolved or partially_resolved.'
+          type: string
+          minLength: 1
+        owed:
+          title: Owed
+          description: Dollar amount left unresolved.
+          type: number
+        path_name:
+          title: Path name
+          type: string
+          minLength: 1
+        plan_name:
+          title: Plan name
+          type: string
+          minLength: 1
+        target_user_email:
+          title: Target user email
+          type: string
+          minLength: 1
+        target_user_name:
+          title: Target user name
+          type: string
+          minLength: 1
+        value:
+          title: Value
+          description: Dollar amount already paid out.
           type: number
   securitySchemes:
     token_auth:
