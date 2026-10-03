@@ -64,19 +64,25 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ExternalPath:
+    ExternalPlan:
+      required:
+      - assignments
+      - paths
       type: object
       properties:
-        id:
-          title: Id
-          type: string
-          format: uuid
-          readOnly: true
+        assignments:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalAssignment'
         name:
           title: Name
           type: string
           readOnly: true
           minLength: 1
+        paths:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalPath'
     ExternalAssignment:
       required:
       - email
@@ -101,25 +107,19 @@ components:
           - 'null'
           format: date
           readOnly: true
-    ExternalPlan:
-      required:
-      - assignments
-      - paths
+    ExternalPath:
       type: object
       properties:
-        assignments:
-          type: array
-          items:
-            $ref: '#/components/schemas/ExternalAssignment'
+        id:
+          title: Id
+          type: string
+          format: uuid
+          readOnly: true
         name:
           title: Name
           type: string
           readOnly: true
           minLength: 1
-        paths:
-          type: array
-          items:
-            $ref: '#/components/schemas/ExternalPath'
   securitySchemes:
     token_auth:
       type: apiKey
