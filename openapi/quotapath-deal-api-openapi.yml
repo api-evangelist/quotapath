@@ -181,81 +181,42 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ExternalBulkDeal'
-    ExternalBulkDeal:
+    ExternalDealMetadata:
       required:
-      - deal_values
-      - name
-      - user_email
-      type: object
+      - date_field_1
+      - date_field_2
+      - number_field_1
+      type:
+      - object
+      - 'null'
       properties:
-        admin_locked:
-          title: Admin locked
-          type: boolean
-        created_date:
-          title: Created date
-          type: string
-          format: date-time
-          readOnly: true
-        date:
-          title: Date
+        date_field_1:
+          title: Date field 1
           type: string
           format: date
-        deal_values:
-          type: array
-          items:
-            $ref: '#/components/schemas/ExternalDealValue'
-          minItems: 1
-        id:
-          title: Id
+        date_field_2:
+          title: Date field 2
+          type: string
+          format: date
+        number_field_1:
+          title: Number field 1
+          type: string
+          format: decimal
+    ExternalDealValue:
+      required:
+      - value
+      - path_id
+      type: object
+      properties:
+        value:
+          title: Value
+          description: deal amount as number
+          type: number
+        path_id:
+          title: Path id
+          description: path this dealvalue applies to
           type: string
           format: uuid
-          readOnly: true
-        integration_id:
-          title: Integration id
-          description: Unique foreign key from data-integration, paired with source
-          type:
-          - string
-          - 'null'
-          minLength: 1
-        integration_source:
-          title: Integration source
-          description: Source metadata for data-integration, here to keep relevant source info close at hand to the quotapath API/UI, and allow for upsert logic
-          type:
-          - string
-          - 'null'
-          enum:
-          - api
-          - close
-          - hubspot
-          - salesforce
-          - bulk
-          - universal
-          readOnly: true
-        name:
-          title: Name
-          type: string
-          maxLength: 255
-          minLength: 1
-        state:
-          title: State
-          type: string
-          enum:
-          - closed
-          - open
-          - lost
-        updated_date:
-          title: Updated date
-          type: string
-          format: date-time
-          readOnly: true
-        user_email:
-          title: User email
-          description: deal owner email
-          type: string
-          format: email
-          minLength: 1
-        metadata:
-          $ref: '#/components/schemas/ExternalDealMetadata'
     ExternalDeal:
       required:
       - deal_values
@@ -331,42 +292,81 @@ components:
           minLength: 1
         metadata:
           $ref: '#/components/schemas/ExternalDealMetadata'
-    ExternalDealMetadata:
+    ExternalBulkDeal:
       required:
-      - date_field_1
-      - date_field_2
-      - number_field_1
-      type:
-      - object
-      - 'null'
-      properties:
-        date_field_1:
-          title: Date field 1
-          type: string
-          format: date
-        date_field_2:
-          title: Date field 2
-          type: string
-          format: date
-        number_field_1:
-          title: Number field 1
-          type: string
-          format: decimal
-    ExternalDealValue:
-      required:
-      - value
-      - path_id
+      - deal_values
+      - name
+      - user_email
       type: object
       properties:
-        value:
-          title: Value
-          description: deal amount as number
-          type: number
-        path_id:
-          title: Path id
-          description: path this dealvalue applies to
+        admin_locked:
+          title: Admin locked
+          type: boolean
+        created_date:
+          title: Created date
+          type: string
+          format: date-time
+          readOnly: true
+        date:
+          title: Date
+          type: string
+          format: date
+        deal_values:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalDealValue'
+          minItems: 1
+        id:
+          title: Id
           type: string
           format: uuid
+          readOnly: true
+        integration_id:
+          title: Integration id
+          description: Unique foreign key from data-integration, paired with source
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        integration_source:
+          title: Integration source
+          description: Source metadata for data-integration, here to keep relevant source info close at hand to the quotapath API/UI, and allow for upsert logic
+          type:
+          - string
+          - 'null'
+          enum:
+          - api
+          - close
+          - hubspot
+          - salesforce
+          - bulk
+          - universal
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 255
+          minLength: 1
+        state:
+          title: State
+          type: string
+          enum:
+          - closed
+          - open
+          - lost
+        updated_date:
+          title: Updated date
+          type: string
+          format: date-time
+          readOnly: true
+        user_email:
+          title: User email
+          description: deal owner email
+          type: string
+          format: email
+          minLength: 1
+        metadata:
+          $ref: '#/components/schemas/ExternalDealMetadata'
   requestBodies:
     ExternalDeal:
       content:
