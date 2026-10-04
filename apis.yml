@@ -169,6 +169,9 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: CapabilityMap
+  url: capabilities/quotapath-capability-edges.yml
+  name: QuotaPath Business Capability Map
 - type: AgenticAccess
   url: agentic-access/quotapath-agentic-access.yml
 - type: TrustCenter

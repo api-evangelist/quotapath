@@ -1,0 +1,55 @@
+slug: quotapath
+provider: QuotaPath
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 4
+edges:
+- tag: Path
+  spec_file: quotapath-path-api-openapi.yml
+  capability_id: BC-410.70
+  capability_id_l1: BC-410
+  capability_name: Sales Performance Management
+  confidence: 0.82
+  evidence: GET /path/{path_uuid}/quota/assignments/ 'Path quota assignments list'; POST '/path/{path_uuid}/quota/values/'
+  reason: QuotaPath 'Path' endpoints manage quota assignments and quota values for sales compensation
+    plans — quota management falls under Sales Performance Management.
+- tag: Plan
+  spec_file: quotapath-plan-api-openapi.yml
+  capability_id: BC-410.70
+  capability_id_l1: BC-410
+  capability_name: Sales Performance Management
+  confidence: 0.82
+  evidence: GET /plan/ 'Plan list'; schemas ExternalPlan, ExternalAssignment, ExternalPath; vendor 'applying
+    commission plans, quotas'
+  reason: '''Plan'' here is a commission compensation plan with assignments and quota paths — Sales Performance
+    Management (compensation plans, quota management).'
+- tag: Payout
+  spec_file: quotapath-payout-api-openapi.yml
+  capability_id: BC-410.70
+  capability_id_l1: BC-410
+  capability_name: Sales Performance Management
+  confidence: 0.8
+  evidence: GET /payout/ 'Payout list'; schemas ExternalPayout; vendor 'sales commission tracking and
+    compensation management platform'
+  reason: Commission payout listing is part of sales compensation plan administration (Sales Performance
+    Management). Could also touch payroll, but the vendor context is clearly sales commission.
+- tag: Deal
+  spec_file: quotapath-deal-api-openapi.yml
+  capability_id: BC-410.30
+  capability_id_l1: BC-410
+  capability_name: Opportunity & Pipeline Management
+  confidence: 0.7
+  evidence: GET /deal/ Deal list; POST /deal/bulk/ Deal bulk create; schemas ExternalDeal, ExternalDealValue
+  reason: CRUD over deal records (value, metadata) that QuotaPath pulls from HubSpot/Salesforce to drive
+    commissions. Deal lifecycle data fits opportunity/deal management; however the vendor's purpose is
+    sales compensation (BC-410.70), so sub-capability choice is uncertain — hence moderate confidence
+    at the L1 Sales Management level.
