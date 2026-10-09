@@ -114,3 +114,28 @@ api_metering:
     calls? No, QuotaPath does not charge for API calls." API access is gated by
     subscription tier (Premium and above), not by call volume.
   source: https://help.quotapath.com/en/articles/8097859-api-documentation
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - negotiated
+  units: []
+  plans:
+  - name: Growth
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: Premium
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: Strategic
+    access: other
+    model: negotiated
+    model_how: derived
+    units: []
+    periods: []
