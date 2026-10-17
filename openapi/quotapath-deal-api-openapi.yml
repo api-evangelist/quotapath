@@ -172,52 +172,7 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ExternalBulkDealInput:
-      required:
-      - deals
-      type: object
-      properties:
-        deals:
-          type: array
-          items:
-            $ref: '#/components/schemas/ExternalBulkDeal'
-    ExternalDealMetadata:
-      required:
-      - date_field_1
-      - date_field_2
-      - number_field_1
-      type:
-      - object
-      - 'null'
-      properties:
-        date_field_1:
-          title: Date field 1
-          type: string
-          format: date
-        date_field_2:
-          title: Date field 2
-          type: string
-          format: date
-        number_field_1:
-          title: Number field 1
-          type: string
-          format: decimal
-    ExternalDealValue:
-      required:
-      - value
-      - path_id
-      type: object
-      properties:
-        value:
-          title: Value
-          description: deal amount as number
-          type: number
-        path_id:
-          title: Path id
-          description: path this dealvalue applies to
-          type: string
-          format: uuid
-    ExternalDeal:
+    ExternalBulkDeal:
       required:
       - deal_values
       - name
@@ -292,7 +247,52 @@ components:
           minLength: 1
         metadata:
           $ref: '#/components/schemas/ExternalDealMetadata'
-    ExternalBulkDeal:
+    ExternalBulkDealInput:
+      required:
+      - deals
+      type: object
+      properties:
+        deals:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalBulkDeal'
+    ExternalDealMetadata:
+      required:
+      - date_field_1
+      - date_field_2
+      - number_field_1
+      type:
+      - object
+      - 'null'
+      properties:
+        date_field_1:
+          title: Date field 1
+          type: string
+          format: date
+        date_field_2:
+          title: Date field 2
+          type: string
+          format: date
+        number_field_1:
+          title: Number field 1
+          type: string
+          format: decimal
+    ExternalDealValue:
+      required:
+      - value
+      - path_id
+      type: object
+      properties:
+        value:
+          title: Value
+          description: deal amount as number
+          type: number
+        path_id:
+          title: Path id
+          description: path this dealvalue applies to
+          type: string
+          format: uuid
+    ExternalDeal:
       required:
       - deal_values
       - name
